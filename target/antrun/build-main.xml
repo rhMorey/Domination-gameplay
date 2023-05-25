@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <copy file="C:\Users\Shadow\Documents\Domination pro\target/Domination.jar" todir="C:\Users\Shadow\Desktop\1.19.2\plugins"/>
+</target>
+</project>
