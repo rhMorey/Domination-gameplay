@@ -29,6 +29,11 @@ public final class main extends JavaPlugin {
 
         Bukkit.getPluginManager().registerEvents(new team(), this);
         Bukkit.getPluginManager().registerEvents(new capture(), this);
+
+        // FLAGS
+        Bukkit.getPluginManager().registerEvents(new domination.morey.gamemode.flags.flag1(), this);
+        Bukkit.getPluginManager().registerEvents(new domination.morey.gamemode.flags.flag2(), this);
+        // FLAGS
     }
 
     @Override

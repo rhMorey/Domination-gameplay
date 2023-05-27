@@ -1,18 +1,15 @@
 package domination.morey.gamemode;
 
 import com.sk89q.worldedit.bukkit.BukkitAdapter;
-import com.sk89q.worldedit.math.BlockVector3;
 import com.sk89q.worldguard.WorldGuard;
 import com.sk89q.worldguard.protection.managers.RegionManager;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import com.sk89q.worldguard.protection.regions.RegionContainer;
 import com.sk89q.worldedit.world.World;
-import com.sun.org.apache.xpath.internal.axes.PredicatedNodeTest;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import domination.morey.main;
 
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -26,8 +23,14 @@ import java.util.Objects;
 
 public class capture implements Listener {
 
+    capture manage;
     public int i = 0;
-    @EventHandler
+
+    public capture() {
+        manage = this;
+    }
+
+    /*@EventHandler
     public void captureFlag(PlayerInteractEvent event) {
 
         Player player = event.getPlayer();
@@ -47,7 +50,7 @@ public class capture implements Listener {
         whatFlag(flag1, player, playerLocation, event.getClickedBlock(), 66);
         whatFlag(flag2, player, playerLocation, event.getClickedBlock(), 69);
 
-    }
+    }*/
 
     public void whatFlag(ProtectedRegion flag, Player player, Location playerLocation, Block clicked, int y) {
         if (flag.contains(playerLocation.getBlockX(), playerLocation.getBlockY(), playerLocation.getBlockZ())) {
