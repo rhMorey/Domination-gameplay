@@ -3,3 +3,15 @@ version: '1.0-SNAPSHOT'
 main: domination.morey.main
 api-version: 1.19
 depend: [WorldGuard]
+commands:
+  money:
+    description: Vous montre votre monnaie
+    aliases: [bal, balance]
+    permission-message: "§c§l(!) §cYou don't have permission to use this command."
+    permission: domination.money
+
+  gmoney:
+    description: Vous permet de donner de l'argent à un joueur (admin)
+    aliases: [gbal, gbalance]
+    permission-message: "§c§l(!) §cYou don't have permission to use this command."
+    permission: domination.gmoney

@@ -10,6 +10,7 @@ import domination.morey.team.team;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import domination.morey.main;
+import domination.morey.economy.money;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -30,6 +31,8 @@ public class capture implements Listener {
     public capture() {
         manage = this;
     }
+    static money money = new money();
+
 
     //
     // Détection de quel équipe clique sur le drapeau + changement de bloc
@@ -38,21 +41,25 @@ public class capture implements Listener {
         if (flag.contains(playerLocation.getBlockX(), playerLocation.getBlockY(), playerLocation.getBlockZ())) {
             if (team.purple.getEntries().contains(player.getName()) && main.getCenter(flag, y).getType().equals(Material.YELLOW_WOOL)) {
                 main.getCenter(flag, y).setType(Material.WHITE_WOOL);
+                money.addMoney(5, player);
                 player.sendMessage("§6L'équipe §5Violet§6 conteste un drapeau !");
                 return;
             }
             if (team.purple.getEntries().contains(player.getName()) && main.getCenter(flag, y).getType().equals(Material.WHITE_WOOL)) {
                 main.getCenter(flag, y).setType(Material.PURPLE_WOOL);
+                money.addMoney(15, player);
                 player.sendMessage("§6L'équipe §5Violet§6 a capturé un drapeau !");
                 return;
             }
             if (team.yellow.getEntries().contains(player.getName()) && main.getCenter(flag, y).getType().equals(Material.PURPLE_WOOL)) {
                 main.getCenter(flag, y).setType(Material.WHITE_WOOL);
+                money.addMoney(5, player);
                 player.sendMessage("§6L'équipe §eJaune§6 conteste un drapeau !");
                 return;
             }
             if (team.yellow.getEntries().contains(player.getName()) && main.getCenter(flag, y).getType().equals(Material.WHITE_WOOL)) {
                 main.getCenter(flag, y).setType(Material.YELLOW_WOOL);
+                money.addMoney(15, player);
                 player.sendMessage("§6L'équipe §eJaune§6 a capturé un drapeau !");
                 return;
             }
