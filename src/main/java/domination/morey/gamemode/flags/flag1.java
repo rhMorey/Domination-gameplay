@@ -7,9 +7,12 @@ import com.sk89q.worldguard.protection.managers.RegionManager;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import com.sk89q.worldguard.protection.regions.RegionContainer;
 import domination.morey.gamemode.capture;
+import domination.morey.main;
 import domination.morey.team.team;
+import domination.morey.economy.money;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -18,14 +21,21 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
+import org.bukkit.scheduler.BukkitTask;
 
 import java.util.Objects;
+import java.util.logging.Logger;
 
 public class flag1 implements Listener {
 
     private int contest = 0;
     private int i = 0;
     static capture capture = new capture();
+
+    private int seconds;
+    private BukkitTask timerTask;
+
+    static money money = new money();
     @EventHandler
     public void captureFlag(PlayerInteractEvent event) {
 
@@ -90,6 +100,53 @@ public class flag1 implements Listener {
                     i = 0;
                     contest = 0;
                     capture.whatFlag(flag1, player, playerLocation, 66);
+                }
+            }
+        }
+    }
+
+    public void points(String t) {
+
+        Logger logger = Bukkit.getLogger();
+        logger.info("test");
+        timerTask = Bukkit.getServer().getScheduler().runTaskTimer(main.plugin, () -> {
+            seconds++;
+            // Faites quelque chose chaque seconde (par exemple, afficher le temps dans la console)
+            logger.info("§6" + seconds + "§e secondes se sont écoulées");
+            if (seconds == 10) {
+                Bukkit.getServer().broadcastMessage("test");
+            }
+            if (seconds == 20) {
+                Bukkit.getServer().broadcastMessage("test2");
+            }
+            if(seconds == 30) {
+                getTeamPlayers(t);
+                seconds = 0;
+                Bukkit.getServer().broadcastMessage("fin");
+            }
+        }, 20L, 20L);
+    }
+
+    private void stopTimer() {
+        if (timerTask != null) {
+            timerTask.cancel();
+            timerTask = null;
+        }
+    }
+
+    public void getTeamPlayers(String t) {
+
+        if(t.equals("purple")) {
+            for (Player player : Bukkit.getOnlinePlayers()) {
+                if (team.purple.getEntries().contains(player.getName())) {
+                    money.addMoney(2, player);
+                }
+            }
+        }
+        if(t.equals("yellow")) {
+            for (Player player : Bukkit.getOnlinePlayers()) {
+                if (team.yellow.getEntries().contains(player.getName())) {
+                    money.addMoney(2, player);
                 }
             }
         }
