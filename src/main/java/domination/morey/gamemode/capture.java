@@ -6,12 +6,14 @@ import com.sk89q.worldguard.protection.managers.RegionManager;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import com.sk89q.worldguard.protection.regions.RegionContainer;
 import com.sk89q.worldedit.world.World;
+import domination.morey.team.team;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import domination.morey.main;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -24,51 +26,61 @@ import java.util.Objects;
 public class capture implements Listener {
 
     capture manage;
-    public int i = 0;
 
     public capture() {
         manage = this;
     }
 
-    /*@EventHandler
-    public void captureFlag(PlayerInteractEvent event) {
-
-        Player player = event.getPlayer();
-        World w = BukkitAdapter.adapt(player.getWorld());
-        RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
-        RegionManager regions = container.get(w);
-
-        assert regions != null;
-        ProtectedRegion flag1 = regions.getRegion("flag1");
-        ProtectedRegion flag2 = regions.getRegion("flag2");
-
-        Location playerLocation = player.getLocation();
-        if (Objects.equals(event.getHand(), EquipmentSlot.OFF_HAND)) return;
-        if(event.getClickedBlock() == null) return;
-        assert flag1 != null;
-        assert flag2 != null;
-        whatFlag(flag1, player, playerLocation, event.getClickedBlock(), 66);
-        whatFlag(flag2, player, playerLocation, event.getClickedBlock(), 69);
-
-    }*/
-
-    public void whatFlag(ProtectedRegion flag, Player player, Location playerLocation, Block clicked, int y) {
+    //
+    // Détection de quel équipe clique sur le drapeau + changement de bloc
+    //
+    public void whatFlag(ProtectedRegion flag, Player player, Location playerLocation, int y) {
         if (flag.contains(playerLocation.getBlockX(), playerLocation.getBlockY(), playerLocation.getBlockZ())) {
-            if(clicked.getType().equals(Material.WHITE_WOOL)) {
-                i++;
-                System.out.println(i);
-                String message = "§e " + i + " §7/ §a40";
-                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(message));
-                if (i == 40) {
-                    player.sendMessage("§aVous avez capturé le drapeau");
-                    player.sendMessage(main.getCenter(flag, y).toString());
-                    if(main.getCenter(flag, y).getType().equals(Material.WHITE_WOOL)) {
-                        main.getCenter(flag, y).setType(Material.PURPLE_WOOL);
-
-                    }
-                    i = 0;
-                }
+            if (team.purple.getEntries().contains(player.getName()) && main.getCenter(flag, y).getType().equals(Material.YELLOW_WOOL)) {
+                main.getCenter(flag, y).setType(Material.WHITE_WOOL);
+                player.sendMessage("§6L'équipe §5Violet§6 conteste un drapeau !");
+                return;
+            }
+            if (team.purple.getEntries().contains(player.getName()) && main.getCenter(flag, y).getType().equals(Material.WHITE_WOOL)) {
+                main.getCenter(flag, y).setType(Material.PURPLE_WOOL);
+                player.sendMessage("§6L'équipe §5Violet§6 a capturé un drapeau !");
+                return;
+            }
+            if (team.yellow.getEntries().contains(player.getName()) && main.getCenter(flag, y).getType().equals(Material.PURPLE_WOOL)) {
+                main.getCenter(flag, y).setType(Material.WHITE_WOOL);
+                player.sendMessage("§6L'équipe §eJaune§6 conteste un drapeau !");
+                return;
+            }
+            if (team.yellow.getEntries().contains(player.getName()) && main.getCenter(flag, y).getType().equals(Material.WHITE_WOOL)) {
+                main.getCenter(flag, y).setType(Material.YELLOW_WOOL);
+                player.sendMessage("§6L'équipe §eJaune§6 a capturé un drapeau !");
+                return;
             }
         }
+    }
+    //
+    // Effet ajouté lors de la capture d'un drapeau ou contestation
+    //
+    public void effect(int a, Player player) {
+
+        Location loc = player.getLocation();
+        if(a == 10) {
+            player.getWorld().playSound(loc, Sound.BLOCK_NOTE_BLOCK_COW_BELL, 2, 0);
+            player.getWorld().playSound(loc, Sound.BLOCK_NOTE_BLOCK_BELL, 2, 0);
+        }
+        if(a == 20) {
+            player.getWorld().playSound(loc, Sound.BLOCK_NOTE_BLOCK_BELL, 2, 1);
+            player.getWorld().playSound(loc, Sound.BLOCK_NOTE_BLOCK_COW_BELL, 2, 1);
+        }
+        if(a == 30) {
+            player.getWorld().playSound(loc, Sound.BLOCK_NOTE_BLOCK_BELL, 2, 2);
+            player.getWorld().playSound(loc, Sound.BLOCK_NOTE_BLOCK_COW_BELL, 2, 2);
+        }
+        if(a == 40) {
+            player.getWorld().playSound(loc, Sound.BLOCK_NOTE_BLOCK_FLUTE, 5, 1);
+            player.getWorld().playSound(loc, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 5, 2);
+            player.getWorld().spawnParticle(org.bukkit.Particle.FIREWORKS_SPARK, loc, 40);
+        }
+
     }
 }
