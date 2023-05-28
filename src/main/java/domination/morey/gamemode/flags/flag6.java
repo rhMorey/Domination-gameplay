@@ -6,6 +6,7 @@ import com.sk89q.worldguard.WorldGuard;
 import com.sk89q.worldguard.protection.managers.RegionManager;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import com.sk89q.worldguard.protection.regions.RegionContainer;
+import domination.morey.economy.money;
 import domination.morey.gamemode.capture;
 import domination.morey.team.team;
 import net.md_5.bungee.api.ChatMessageType;
@@ -20,11 +21,12 @@ import org.bukkit.inventory.EquipmentSlot;
 
 import java.util.Objects;
 
-public class flag2 implements Listener {
+public class flag6 implements Listener {
 
     private int contest = 0;
     private int i = 0;
     static domination.morey.gamemode.capture capture = new capture();
+    static domination.morey.economy.money money = new money();
     @EventHandler
     public void captureFlag(PlayerInteractEvent event) {
 
@@ -35,13 +37,19 @@ public class flag2 implements Listener {
         assert regions != null;
         Location playerLocation = player.getLocation();
 
-        ProtectedRegion flag2 = regions.getRegion("flag2");
-        assert flag2 != null;
+        // MODIFICATION
+        ProtectedRegion flag6 = regions.getRegion("flag6");
+        assert flag6 != null;
+        // MODIFICATION
 
         if(event.getClickedBlock() == null) return;
         if (Objects.equals(event.getHand(), EquipmentSlot.OFF_HAND)) return;
-        if(regions.getRegion("flag2") == null) return;
-        if(regions.getRegion("flag2").contains(playerLocation.getBlockX(), playerLocation.getBlockY(), playerLocation.getBlockZ())) {
+
+        // MODIFICATION
+        if(regions.getRegion("flag6") == null) return;
+        if(Objects.requireNonNull(regions.getRegion("flag6")).contains(playerLocation.getBlockX(), playerLocation.getBlockY(), playerLocation.getBlockZ())) {
+            // MODIFICATION
+
             if (team.purple.getEntries().contains(player.getName()) && event.getClickedBlock().getType().equals(Material.YELLOW_WOOL)) {
                 contest++;
                 capture.effect(contest, player);
@@ -50,7 +58,10 @@ public class flag2 implements Listener {
                 if (contest == 20) {
                     contest = 0;
                     i = 0;
-                    capture.whatFlag(flag2, player, playerLocation, 77);
+                    //
+                    // MODIFICATION COORDONNÉES
+                    //
+                    capture.whatFlag(flag6, player, playerLocation, 67);
                 }
             }
             if (team.purple.getEntries().contains(player.getName()) && event.getClickedBlock().getType().equals(Material.WHITE_WOOL)) {
@@ -61,7 +72,7 @@ public class flag2 implements Listener {
                 if (i == 40) {
                     i = 0;
                     contest = 0;
-                    capture.whatFlag(flag2, player, playerLocation, 77);
+                    capture.whatFlag(flag6, player, playerLocation, 67);
                 }
             }
             if (team.yellow.getEntries().contains(player.getName()) && event.getClickedBlock().getType().equals(Material.PURPLE_WOOL)) {
@@ -72,7 +83,7 @@ public class flag2 implements Listener {
                 if (contest == 20) {
                     contest = 0;
                     i = 0;
-                    capture.whatFlag(flag2, player, playerLocation, 77);
+                    capture.whatFlag(flag6, player, playerLocation, 67);
                 }
             }
             if (team.yellow.getEntries().contains(player.getName()) && event.getClickedBlock().getType().equals(Material.WHITE_WOOL)) {
@@ -83,9 +94,10 @@ public class flag2 implements Listener {
                 if (i == 40) {
                     i = 0;
                     contest = 0;
-                    capture.whatFlag(flag2, player, playerLocation, 77);
+                    capture.whatFlag(flag6, player, playerLocation, 67);
                 }
             }
         }
     }
+
 }

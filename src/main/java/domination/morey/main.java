@@ -6,6 +6,7 @@ import domination.morey.economy.cmds.gmoneyCmds;
 import domination.morey.economy.cmds.moneyCmds;
 import domination.morey.economy.money;
 import domination.morey.gamemode.capture;
+import domination.morey.gamemode.gameplay;
 import domination.morey.team.team;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -25,7 +26,6 @@ public final class main extends JavaPlugin {
     public static main plugin;
     private static main instance;
 
-    FileConfiguration config = this.getConfig();
     @Override
     public void onEnable() {
 
@@ -41,10 +41,16 @@ public final class main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new capture(), this);
         Bukkit.getPluginManager().registerEvents(new money(), this);
         Bukkit.getPluginManager().registerEvents(new mainEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new gameplay(), this);
 
         // FLAGS
         Bukkit.getPluginManager().registerEvents(new domination.morey.gamemode.flags.flag1(), this);
         Bukkit.getPluginManager().registerEvents(new domination.morey.gamemode.flags.flag2(), this);
+        Bukkit.getPluginManager().registerEvents(new domination.morey.gamemode.flags.flag3(), this);
+        Bukkit.getPluginManager().registerEvents(new domination.morey.gamemode.flags.flag4(), this);
+        Bukkit.getPluginManager().registerEvents(new domination.morey.gamemode.flags.flag5(), this);
+        Bukkit.getPluginManager().registerEvents(new domination.morey.gamemode.flags.flag6(), this);
+        Bukkit.getPluginManager().registerEvents(new domination.morey.gamemode.flags.flag7(), this);
         // FLAGS
     }
 

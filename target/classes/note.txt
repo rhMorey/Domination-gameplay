@@ -1,0 +1,27 @@
+938 70 -1074
+Ville dans le désert
+flag1
+
+437 77 -1344
+Entrée du grand chateau du nord
+flag2
+
+97 79 -517
+Entrée du chateau noyé
+flag3
+
+18 69 -65
+Ruines de slime
+flag4
+
+-866 75 45
+Citadelle bleue
+flag5
+
+-476 67 -754
+Arène
+flag6
+
+473 91 34
+Statue de sorcier
+flag7

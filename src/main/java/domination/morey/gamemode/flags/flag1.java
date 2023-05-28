@@ -55,7 +55,8 @@ public class flag1 implements Listener {
         if (Objects.equals(event.getHand(), EquipmentSlot.OFF_HAND)) return;
 
         // MODIFICATION
-        if(regions.getRegion("flag1").contains(playerLocation.getBlockX(), playerLocation.getBlockY(), playerLocation.getBlockZ())) {
+        if(regions.getRegion("flag1") == null) return;
+        if(Objects.requireNonNull(regions.getRegion("flag1")).contains(playerLocation.getBlockX(), playerLocation.getBlockY(), playerLocation.getBlockZ())) {
             // MODIFICATION
 
             if (team.purple.getEntries().contains(player.getName()) && event.getClickedBlock().getType().equals(Material.YELLOW_WOOL)) {
@@ -66,7 +67,7 @@ public class flag1 implements Listener {
                 if (contest == 20) {
                     contest = 0;
                     i = 0;
-                    capture.whatFlag(flag1, player, playerLocation, 66);
+                    capture.whatFlag(flag1, player, playerLocation, 70);
                 }
             }
             if (team.purple.getEntries().contains(player.getName()) && event.getClickedBlock().getType().equals(Material.WHITE_WOOL)) {
@@ -77,7 +78,7 @@ public class flag1 implements Listener {
                 if (i == 40) {
                     i = 0;
                     contest = 0;
-                    capture.whatFlag(flag1, player, playerLocation, 66);
+                    capture.whatFlag(flag1, player, playerLocation, 70);
                 }
             }
             if (team.yellow.getEntries().contains(player.getName()) && event.getClickedBlock().getType().equals(Material.PURPLE_WOOL)) {
@@ -88,7 +89,7 @@ public class flag1 implements Listener {
                 if (contest == 20) {
                     contest = 0;
                     i = 0;
-                    capture.whatFlag(flag1, player, playerLocation, 66);
+                    capture.whatFlag(flag1, player, playerLocation, 70);
                 }
             }
             if (team.yellow.getEntries().contains(player.getName()) && event.getClickedBlock().getType().equals(Material.WHITE_WOOL)) {
@@ -99,7 +100,7 @@ public class flag1 implements Listener {
                 if (i == 40) {
                     i = 0;
                     contest = 0;
-                    capture.whatFlag(flag1, player, playerLocation, 66);
+                    capture.whatFlag(flag1, player, playerLocation, 70);
                 }
             }
         }

@@ -47,25 +47,25 @@ public class capture implements Listener {
             if (team.purple.getEntries().contains(player.getName()) && main.getCenter(flag, y).getType().equals(Material.YELLOW_WOOL)) {
                 main.getCenter(flag, y).setType(Material.WHITE_WOOL);
                 money.addMoney(5, player);
-                player.sendMessage("§6L'équipe §5Violet§6 conteste un drapeau !");
+                Bukkit.broadcastMessage("§6L'équipe §5Violet§6 conteste un drapeau !");
                 return;
             }
             if (team.purple.getEntries().contains(player.getName()) && main.getCenter(flag, y).getType().equals(Material.WHITE_WOOL)) {
                 main.getCenter(flag, y).setType(Material.PURPLE_WOOL);
                 money.addMoney(15, player);
-                player.sendMessage("§6L'équipe §5Violet§6 a capturé un drapeau !");
+                Bukkit.broadcastMessage("§6L'équipe §5Violet§6 a capturé un drapeau !");
                 return;
             }
             if (team.yellow.getEntries().contains(player.getName()) && main.getCenter(flag, y).getType().equals(Material.PURPLE_WOOL)) {
                 main.getCenter(flag, y).setType(Material.WHITE_WOOL);
                 money.addMoney(5, player);
-                player.sendMessage("§6L'équipe §eJaune§6 conteste un drapeau !");
+                Bukkit.broadcastMessage("§6L'équipe §eJaune§6 conteste un drapeau !");
                 return;
             }
             if (team.yellow.getEntries().contains(player.getName()) && main.getCenter(flag, y).getType().equals(Material.WHITE_WOOL)) {
                 main.getCenter(flag, y).setType(Material.YELLOW_WOOL);
                 money.addMoney(15, player);
-                player.sendMessage("§6L'équipe §eJaune§6 a capturé un drapeau !");
+                Bukkit.broadcastMessage("§6L'équipe §eJaune§6 a capturé un drapeau !");
                 return;
             }
         }
@@ -91,6 +91,7 @@ public class capture implements Listener {
         if(a == 40) {
             player.getWorld().playSound(loc, Sound.BLOCK_NOTE_BLOCK_FLUTE, 5, 1);
             player.getWorld().playSound(loc, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 5, 2);
+            player.getWorld().playSound(loc, Sound.ITEM_GOAT_HORN_SOUND_0, 7, 0);
             player.getWorld().spawnParticle(org.bukkit.Particle.FIREWORKS_SPARK, loc, 40);
         }
 
