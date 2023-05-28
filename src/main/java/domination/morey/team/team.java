@@ -142,14 +142,16 @@ public class team implements Listener {
     public void whichTeam(EntityDamageByEntityEvent event) {
 
         if(event.getEntity() instanceof Player) {
-            Player player = (Player) event.getDamager();
-            Entity target = event.getEntity();
-            if(target instanceof Player) return;
-            if (purple.getEntries().contains(player.getName()) && purple.getEntries().contains(target.getName())) {
-                event.setCancelled(true);
-            }
-            if(yellow.getEntries().contains(player.getName()) && yellow.getEntries().contains(target.getName())) {
-                event.setCancelled(true);
+            if(event.getDamager() instanceof Player) {
+                Player player = (Player) event.getDamager();
+                Entity target = event.getEntity();
+                if (target instanceof Player) return;
+                if (purple.getEntries().contains(player.getName()) && purple.getEntries().contains(target.getName())) {
+                    event.setCancelled(true);
+                }
+                if (yellow.getEntries().contains(player.getName()) && yellow.getEntries().contains(target.getName())) {
+                    event.setCancelled(true);
+                }
             }
         }
     }

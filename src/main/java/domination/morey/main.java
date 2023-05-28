@@ -5,6 +5,11 @@ import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import domination.morey.economy.cmds.gmoneyCmds;
 import domination.morey.economy.cmds.moneyCmds;
 import domination.morey.economy.money;
+import domination.morey.experience.cmds.glevelCmds;
+import domination.morey.experience.cmds.gxpCmds;
+import domination.morey.experience.cmds.levelCmds;
+import domination.morey.experience.cmds.xpCmds;
+import domination.morey.experience.level;
 import domination.morey.gamemode.capture;
 import domination.morey.gamemode.gameplay;
 import domination.morey.team.team;
@@ -37,11 +42,16 @@ public final class main extends JavaPlugin {
 
         Bukkit.getPluginCommand("money").setExecutor(new moneyCmds());
         Bukkit.getPluginCommand("gmoney").setExecutor(new gmoneyCmds());
+        Bukkit.getPluginCommand("gxp").setExecutor(new gxpCmds());
+        Bukkit.getPluginCommand("glevel").setExecutor(new glevelCmds());
+        Bukkit.getPluginCommand("xp").setExecutor(new xpCmds());
+        Bukkit.getPluginCommand("level").setExecutor(new levelCmds());
         Bukkit.getPluginManager().registerEvents(new team(), this);
         Bukkit.getPluginManager().registerEvents(new capture(), this);
         Bukkit.getPluginManager().registerEvents(new money(), this);
         Bukkit.getPluginManager().registerEvents(new mainEvent(), this);
         Bukkit.getPluginManager().registerEvents(new gameplay(), this);
+        Bukkit.getPluginManager().registerEvents(new level(), this);
 
         // FLAGS
         Bukkit.getPluginManager().registerEvents(new domination.morey.gamemode.flags.flag1(), this);

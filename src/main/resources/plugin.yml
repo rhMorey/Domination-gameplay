@@ -6,12 +6,25 @@ depend: [WorldGuard]
 commands:
   money:
     description: Vous montre votre monnaie
-    aliases: [bal, balance]
     permission-message: "§c§l(!) §cYou don't have permission to use this command."
     permission: domination.money
-
   gmoney:
     description: Vous permet de donner de l'argent à un joueur (admin)
-    aliases: [gbal, gbalance]
     permission-message: "§c§l(!) §cYou don't have permission to use this command."
     permission: domination.gmoney
+  gxp:
+    description: Vous permet de donner de l'xp à un joueur (admin)
+    permission-message: "§c§l(!) §cYou don't have permission to use this command."
+    permission: domination.gxp
+  glevel:
+    description: Vous permet de donner des levels à un joueur (admin)
+    permission-message: "§c§l(!) §cYou don't have permission to use this command."
+    permission: domination.glevel
+  xp:
+    description: Vous montre votre xp
+    permission-message: "§c§l(!) §cYou don't have permission to use this command."
+    permission: domination.xp
+  level:
+    description: Vous montre votre level
+    permission-message: "§c§l(!) §cYou don't have permission to use this command."
+    permission: domination.level
