@@ -18,7 +18,7 @@ public class gameplay implements Listener {
 
 
     @EventHandler
-    public void onEnterWrongCamp(PlayerMoveEvent event) {
+    public void onEnterWrongCampPurple(PlayerMoveEvent event) {
 
         Player player = event.getPlayer();
         World w = BukkitAdapter.adapt(player.getWorld());
@@ -39,6 +39,34 @@ public class gameplay implements Listener {
 
             assert purple != null;
             if(purple.contains(player.getLocation().getBlockX(), player.getLocation().getBlockY(), player.getLocation().getBlockZ())) {
+                player.addPotionEffect(new PotionEffect(PotionEffectType.GLOWING, 30, 1));
+                player.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, 30, 0));
+            }
+        }
+    }
+
+    @EventHandler
+    public void onEnterWrongCampYellow(PlayerMoveEvent event) {
+
+        Player player = event.getPlayer();
+        World w = BukkitAdapter.adapt(player.getWorld());
+        RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
+        RegionManager regions = container.get(w);
+        assert regions != null;
+        ProtectedRegion yellow = regions.getRegion("yellow");
+
+        if(team.yellow.getEntries().contains(player.getName())) {
+
+            assert yellow != null;
+            if(yellow.contains(player.getLocation().getBlockX(), player.getLocation().getBlockY(), player.getLocation().getBlockZ())) {
+                player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 30, 1));
+                player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 30, 0));
+            }
+        }
+        if(team.purple.getEntries().contains(player.getName())) {
+
+            assert yellow != null;
+            if(yellow.contains(player.getLocation().getBlockX(), player.getLocation().getBlockY(), player.getLocation().getBlockZ())) {
                 player.addPotionEffect(new PotionEffect(PotionEffectType.GLOWING, 30, 1));
                 player.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, 30, 0));
             }
