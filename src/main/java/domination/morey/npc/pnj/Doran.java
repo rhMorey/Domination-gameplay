@@ -72,7 +72,7 @@ public class Doran implements Listener {
         inv.setItem(5, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
         inv.setItem(6, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
         inv.setItem(7, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
-        inv.setItem(8, main.Item(Material.PAPER, "§6§lProfile", " ", "§aFragment d'émeraude§f: §a" + myMoney + " FE"));
+        inv.setItem(8, main.Item(Material.PAPER, "§6§lProfile§6: §e" + player.getName(), " ", "§aFragment d'émeraude§f: §a" + myMoney + " FE"));
 
         inv.setItem(20, item1);
         inv.setItem(21, item2);
@@ -98,7 +98,7 @@ public class Doran implements Listener {
             }
             if(event.getCurrentItem().equals(item4)) {
                 //
-                item4.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 6);
+                item4.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 5);
                 item4.addItemFlags(ItemFlag.HIDE_ENCHANTS);
                 //
                 purchaseItem(item4, (Player) event.getWhoClicked(), 50);

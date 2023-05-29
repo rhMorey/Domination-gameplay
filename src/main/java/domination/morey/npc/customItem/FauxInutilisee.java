@@ -23,8 +23,8 @@ public class FauxInutilisee implements Listener {
             if (event.getDamager() instanceof Player) {
                 Player player = (Player) event.getDamager();
                 Player target = (Player) event.getEntity();
-                //
-                item4.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 6);
+                // DOIT ETRE MODIFIE AUSSI DANS LA CLASS DU PNJ QUI VEND L'ITEM
+                item4.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 5);
                 //
                 if (player.getInventory().getItemInMainHand().equals(item4)) {
                     target.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 40, 1));
