@@ -7,15 +7,11 @@ import com.sk89q.worldguard.protection.managers.RegionManager;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import com.sk89q.worldguard.protection.regions.RegionContainer;
 import domination.morey.gamemode.capture;
-import domination.morey.main;
 import domination.morey.team.team;
-import domination.morey.economy.money;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -24,7 +20,6 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.scheduler.BukkitTask;
 
 import java.util.Objects;
-import java.util.logging.Logger;
 
 public class flag1 implements Listener {
 
@@ -34,8 +29,6 @@ public class flag1 implements Listener {
 
     private int seconds;
     private BukkitTask timerTask;
-
-    static money money = new money();
     @EventHandler
     public void captureFlag(PlayerInteractEvent event) {
 
@@ -105,7 +98,7 @@ public class flag1 implements Listener {
             }
         }
     }
-
+    /*
     public void points(String t) {
 
         Logger logger = Bukkit.getLogger();
@@ -151,5 +144,5 @@ public class flag1 implements Listener {
                 }
             }
         }
-    }
+    }*/
 }

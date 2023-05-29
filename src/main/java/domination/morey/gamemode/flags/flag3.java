@@ -6,12 +6,10 @@ import com.sk89q.worldguard.WorldGuard;
 import com.sk89q.worldguard.protection.managers.RegionManager;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import com.sk89q.worldguard.protection.regions.RegionContainer;
-import domination.morey.economy.money;
 import domination.morey.gamemode.capture;
 import domination.morey.team.team;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -27,7 +25,6 @@ public class flag3 implements Listener {
     private int contest = 0;
     private int i = 0;
     static domination.morey.gamemode.capture capture = new capture();
-    static domination.morey.economy.money money = new money();
     @EventHandler
     public void captureFlag(PlayerInteractEvent event) {
 

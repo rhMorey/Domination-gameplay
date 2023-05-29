@@ -1,6 +1,5 @@
 package domination.morey.economy;
 
-import domination.morey.gamemode.capture;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -8,11 +7,11 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 import static domination.morey.main.plugin;
 
-public class money implements Listener {
+public class moneyManage implements Listener {
 
-    money manage;
+    moneyManage manage;
 
-    public money() {
+    public moneyManage() {
         manage = this;
     }
 
@@ -34,5 +33,10 @@ public class money implements Listener {
         plugin.getConfig().set("eco." + player.getUniqueId() + ".money", plugin.getConfig().getInt("eco." + player.getUniqueId() + ".money") - amount);
         player.sendMessage("§c-" + amount + "§a Fragment d'émeraude");
         plugin.saveConfig();
+    }
+
+    public int getMoney(Player player) {
+        int money = plugin.getConfig().getInt("eco." + player.getUniqueId() + ".money");
+        return money;
     }
 }

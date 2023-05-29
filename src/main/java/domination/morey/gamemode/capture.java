@@ -1,33 +1,17 @@
 package domination.morey.gamemode;
 
-import com.sk89q.worldedit.bukkit.BukkitAdapter;
-import com.sk89q.worldguard.WorldGuard;
-import com.sk89q.worldguard.protection.managers.RegionManager;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
-import com.sk89q.worldguard.protection.regions.RegionContainer;
-import com.sk89q.worldedit.world.World;
 import domination.morey.team.team;
-import net.md_5.bungee.api.ChatMessageType;
-import net.md_5.bungee.api.chat.TextComponent;
 import domination.morey.main;
-import domination.morey.economy.money;
+import domination.morey.economy.moneyManage;
+import domination.morey.experience.level;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
-import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.EquipmentSlot;
-import org.bukkit.plugin.Plugin;
-import org.bukkit.scheduler.BukkitRunnable;
-import org.bukkit.scheduler.BukkitTask;
-
-import java.util.Objects;
-import java.util.logging.Logger;
 
 public class capture implements Listener {
 
@@ -36,7 +20,8 @@ public class capture implements Listener {
     public capture() {
         manage = this;
     }
-    static money money = new money();
+    static moneyManage myMoney = new moneyManage();
+    static level level = new level();
 
 
     //
@@ -46,25 +31,29 @@ public class capture implements Listener {
         if (flag.contains(playerLocation.getBlockX(), playerLocation.getBlockY(), playerLocation.getBlockZ())) {
             if (team.purple.getEntries().contains(player.getName()) && main.getCenter(flag, y).getType().equals(Material.YELLOW_WOOL)) {
                 main.getCenter(flag, y).setType(Material.WHITE_WOOL);
-                money.addMoney(5, player);
+                myMoney.addMoney(5, player);
+                level.addXP(10, player);
                 Bukkit.broadcastMessage("§6L'équipe §5Violet§6 conteste un drapeau !");
                 return;
             }
             if (team.purple.getEntries().contains(player.getName()) && main.getCenter(flag, y).getType().equals(Material.WHITE_WOOL)) {
                 main.getCenter(flag, y).setType(Material.PURPLE_WOOL);
-                money.addMoney(15, player);
+                myMoney.addMoney(15, player);
+                level.addXP(30, player);
                 Bukkit.broadcastMessage("§6L'équipe §5Violet§6 a capturé un drapeau !");
                 return;
             }
             if (team.yellow.getEntries().contains(player.getName()) && main.getCenter(flag, y).getType().equals(Material.PURPLE_WOOL)) {
                 main.getCenter(flag, y).setType(Material.WHITE_WOOL);
-                money.addMoney(5, player);
+                myMoney.addMoney(5, player);
+                level.addXP(10, player);
                 Bukkit.broadcastMessage("§6L'équipe §eJaune§6 conteste un drapeau !");
                 return;
             }
             if (team.yellow.getEntries().contains(player.getName()) && main.getCenter(flag, y).getType().equals(Material.WHITE_WOOL)) {
                 main.getCenter(flag, y).setType(Material.YELLOW_WOOL);
-                money.addMoney(15, player);
+                myMoney.addMoney(15, player);
+                level.addXP(30, player);
                 Bukkit.broadcastMessage("§6L'équipe §eJaune§6 a capturé un drapeau !");
                 return;
             }

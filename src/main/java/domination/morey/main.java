@@ -4,7 +4,7 @@ import com.sk89q.worldedit.math.BlockVector3;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import domination.morey.economy.cmds.gmoneyCmds;
 import domination.morey.economy.cmds.moneyCmds;
-import domination.morey.economy.money;
+import domination.morey.economy.moneyManage;
 import domination.morey.experience.cmds.glevelCmds;
 import domination.morey.experience.cmds.gxpCmds;
 import domination.morey.experience.cmds.levelCmds;
@@ -12,18 +12,22 @@ import domination.morey.experience.cmds.xpCmds;
 import domination.morey.experience.level;
 import domination.morey.gamemode.capture;
 import domination.morey.gamemode.gameplay;
+import domination.morey.npc.customItem.FauxInutilisee;
+import domination.morey.npc.npcManager;
+import domination.morey.npc.pnj.Doran;
 import domination.morey.team.team;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.awt.*;
 import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.List;
 
 public final class main extends JavaPlugin {
 
@@ -48,10 +52,19 @@ public final class main extends JavaPlugin {
         Bukkit.getPluginCommand("level").setExecutor(new levelCmds());
         Bukkit.getPluginManager().registerEvents(new team(), this);
         Bukkit.getPluginManager().registerEvents(new capture(), this);
-        Bukkit.getPluginManager().registerEvents(new money(), this);
+        Bukkit.getPluginManager().registerEvents(new moneyManage(), this);
         Bukkit.getPluginManager().registerEvents(new mainEvent(), this);
         Bukkit.getPluginManager().registerEvents(new gameplay(), this);
         Bukkit.getPluginManager().registerEvents(new level(), this);
+        Bukkit.getPluginManager().registerEvents(new npcManager(), this);
+
+        // NPC
+        Bukkit.getPluginManager().registerEvents(new Doran(), this);
+        // NPC
+
+        // ITEMS
+        Bukkit.getPluginManager().registerEvents(new FauxInutilisee(), this);
+        // ITEMS
 
         // FLAGS
         Bukkit.getPluginManager().registerEvents(new domination.morey.gamemode.flags.flag1(), this);
@@ -88,5 +101,101 @@ public final class main extends JavaPlugin {
         Location centerLocation = new Location(world, centerX, y, centerZ);
 
         return centerLocation.getBlock();
+    }
+
+    //
+    // ITEMSTACK
+    //
+    public static ItemStack Item(Material mat, String name){
+
+        ItemStack I = new ItemStack(mat);
+        ItemMeta IM = I.getItemMeta();
+        assert IM != null;
+        IM.setDisplayName(name);
+        I.setItemMeta(IM);
+        return I;
+    }
+    public static ItemStack Item(Material mat, String name, String lore1) {
+
+        ItemStack I = new ItemStack(mat);
+        ItemMeta IM = I.getItemMeta();
+        List<String> ILore = new ArrayList<>();
+        ILore.add(String.valueOf(lore1));
+        IM.setLore(ILore);
+        IM.setDisplayName(name);
+        I.setItemMeta(IM);
+        return I;
+    }
+    public static ItemStack Item(Material mat, String name, String lore1, String lore2) {
+
+        ItemStack I = new ItemStack(mat);
+        ItemMeta IM = I.getItemMeta();
+        List<String> ILore = new ArrayList<>();
+        ILore.add(String.valueOf(lore1));
+        ILore.add(String.valueOf(lore2));
+        IM.setLore(ILore);
+        IM.setDisplayName(name);
+        I.setItemMeta(IM);
+        return I;
+    }
+    public static ItemStack Item(Material mat, String name, String lore1, String lore2, String lore3) {
+
+        ItemStack I = new ItemStack(mat);
+        ItemMeta IM = I.getItemMeta();
+        List<String> ILore = new ArrayList<>();
+        ILore.add(String.valueOf(lore1));
+        ILore.add(String.valueOf(lore2));
+        ILore.add(String.valueOf(lore3));
+        IM.setLore(ILore);
+        IM.setDisplayName(name);
+        I.setItemMeta(IM);
+        return I;
+    }
+    public static ItemStack Item(Material mat, String name, String lore1, String lore2, String lore3, String lore4) {
+
+        ItemStack I = new ItemStack(mat);
+        ItemMeta IM = I.getItemMeta();
+        List<String> ILore = new ArrayList<>();
+        ILore.add(String.valueOf(lore1));
+        ILore.add(String.valueOf(lore2));
+        ILore.add(String.valueOf(lore3));
+        ILore.add(String.valueOf(lore4));
+        IM.setLore(ILore);
+        IM.setDisplayName(name);
+        I.setItemMeta(IM);
+        return I;
+    }
+
+    public static ItemStack Item(Material mat, String name, String lore1, String lore2, String lore3, String lore4, String lore5) {
+
+        ItemStack I = new ItemStack(mat);
+        ItemMeta IM = I.getItemMeta();
+        List<String> ILore = new ArrayList<>();
+        ILore.add(String.valueOf(lore1));
+        ILore.add(String.valueOf(lore2));
+        ILore.add(String.valueOf(lore3));
+        ILore.add(String.valueOf(lore4));
+        ILore.add(String.valueOf(lore5));
+        IM.setLore(ILore);
+        IM.setDisplayName(name);
+        I.setItemMeta(IM);
+        return I;
+    }
+
+    public static ItemStack Item(Material mat, String name, String lore1, String lore2, String lore3, String lore4, String lore5, String lore6) {
+
+        ItemStack I = new ItemStack(mat);
+        ItemMeta IM = I.getItemMeta();
+        List<String> ILore = new ArrayList<>();
+        ILore.add(String.valueOf(lore1));
+        ILore.add(String.valueOf(lore2));
+        ILore.add(String.valueOf(lore3));
+        ILore.add(String.valueOf(lore4));
+        ILore.add(String.valueOf(lore5));
+        ILore.add(String.valueOf(lore6));
+        IM.setLore(ILore);
+        IM.setDisplayName(name);
+        I.setItemMeta(IM);
+        return I;
     }
 }

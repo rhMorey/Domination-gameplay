@@ -2,7 +2,7 @@ name: Domination
 version: '1.0-SNAPSHOT'
 main: domination.morey.main
 api-version: 1.19
-depend: [WorldGuard]
+depend: [WorldGuard, Citizens]
 commands:
   money:
     description: Vous montre votre monnaie
