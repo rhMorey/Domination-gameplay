@@ -17,6 +17,14 @@ public class mainEvent implements Listener {
 
     static moneyManage myMoney = new moneyManage();
 
+    //
+    //
+
+    static String patch = "§6§lPatch§6: V0.4-DEV";
+
+    //
+    //
+
     @EventHandler
     public void onDie(PlayerDeathEvent event) {
 
@@ -85,7 +93,7 @@ public class mainEvent implements Listener {
     public void info(PlayerJoinEvent event) {
 
         Player player = event.getPlayer();
-        player.sendMessage("§f§lNEWS §7§l» \n§6§lPatch§6: V0.2-ALPHA");
+        player.sendMessage("§f§lNEWS §7§l» \n" + patch);
         player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_BELL, 1, 1);
     }
 

@@ -9,6 +9,7 @@ domination\morey\npc\customItem\FauxInutilisee.class
 domination\morey\gamemode\flags\flag3.class
 domination\morey\npc\npcManager.class
 domination\morey\gamemode\capture.class
+domination\morey\boss\customMobs.class
 domination\morey\economy\cmds\moneyCmds.class
 domination\morey\experience\cmds\glevelCmds.class
 domination\morey\gamemode\flags\flag1.class
