@@ -1,15 +1,12 @@
-package domination.morey.boss;
+package domination.morey.dungeons;
 
 import domination.morey.main;
-import io.lumine.mythic.api.adapters.AbstractLocation;
-import io.lumine.mythic.api.adapters.AbstractWorld;
 import io.lumine.mythic.api.mobs.MythicMob;
 import io.lumine.mythic.bukkit.BukkitAdapter;
 import io.lumine.mythic.bukkit.MythicBukkit;
 import io.lumine.mythic.core.mobs.ActiveMob;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.World;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

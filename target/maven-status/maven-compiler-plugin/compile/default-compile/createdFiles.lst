@@ -5,15 +5,16 @@ domination\morey\gamemode\gameplay.class
 domination\morey\gamemode\flags\flag5.class
 domination\morey\npc\pnj\Doran.class
 domination\morey\main.class
+domination\morey\economy\emeraldNuggets.class
 domination\morey\npc\customItem\FauxInutilisee.class
 domination\morey\gamemode\flags\flag3.class
 domination\morey\npc\npcManager.class
 domination\morey\gamemode\capture.class
-domination\morey\boss\customMobs.class
 domination\morey\economy\cmds\moneyCmds.class
 domination\morey\experience\cmds\glevelCmds.class
 domination\morey\gamemode\flags\flag1.class
 domination\morey\gamemode\flags\flag6.class
+domination\morey\dungeons\customMobs.class
 domination\morey\experience\level.class
 domination\morey\economy\moneyManage.class
 domination\morey\experience\cmds\gxpCmds.class

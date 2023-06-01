@@ -2,9 +2,10 @@ package domination.morey;
 
 import com.sk89q.worldedit.math.BlockVector3;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
-import domination.morey.boss.customMobs;
+import domination.morey.dungeons.customMobs;
 import domination.morey.economy.cmds.gmoneyCmds;
 import domination.morey.economy.cmds.moneyCmds;
+import domination.morey.economy.emeraldNuggets;
 import domination.morey.economy.moneyManage;
 import domination.morey.experience.cmds.glevelCmds;
 import domination.morey.experience.cmds.gxpCmds;
@@ -59,6 +60,7 @@ public final class main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new level(), this);
         Bukkit.getPluginManager().registerEvents(new npcManager(), this);
         Bukkit.getPluginManager().registerEvents(new customMobs(), this);
+        Bukkit.getPluginManager().registerEvents(new emeraldNuggets(), this);
 
         // NPC
         Bukkit.getPluginManager().registerEvents(new Doran(), this);
