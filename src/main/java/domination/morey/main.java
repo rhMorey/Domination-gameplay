@@ -20,6 +20,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -46,10 +47,9 @@ public final class main extends JavaPlugin {
         Bukkit.getPluginCommand("money").setExecutor(new moneyCmds());
         Bukkit.getPluginCommand("gmoney").setExecutor(new gmoneyCmds());
         Bukkit.getPluginCommand("gxp").setExecutor(new gxpCmds());
-        Bukkit.getPluginCommand("glevel").setExecutor(new glevelCmds());
-        Bukkit.getPluginCommand("xp").setExecutor(new xpCmds());
-        Bukkit.getPluginCommand("level").setExecutor(new levelCmds());
+        Bukkit.getPluginCommand("gmana").setExecutor(new gmanaCmds());
         Bukkit.getPluginCommand("rankup").setExecutor(new rankupCmds());
+        Bukkit.getPluginCommand("stats").setExecutor(new statsCmds());
         Bukkit.getPluginManager().registerEvents(new team(), this);
         Bukkit.getPluginManager().registerEvents(new capture(), this);
         Bukkit.getPluginManager().registerEvents(new moneyManage(), this);
@@ -103,6 +103,13 @@ public final class main extends JavaPlugin {
         Location centerLocation = new Location(world, centerX, y, centerZ);
 
         return centerLocation.getBlock();
+    }
+
+    public static String manaPath(Player player) {
+        return "eco." + player.getUniqueId() + ".mana";
+    }
+    public static String xpPath(Player player) {
+        return "eco." + player.getUniqueId() + ".xp";
     }
 
     //

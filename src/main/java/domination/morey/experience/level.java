@@ -23,9 +23,10 @@ public class level implements Listener {
 
     @EventHandler
     public void onConnect(PlayerJoinEvent event) {
-        if (plugin.getConfig().get("eco." + event.getPlayer().getUniqueId() + ".xp") == null || plugin.getConfig().get("eco." + event.getPlayer().getUniqueId() + ".level") == null) {
-            plugin.getConfig().set("eco." + event.getPlayer().getUniqueId() + ".xp", 0);
-            plugin.getConfig().set("eco." + event.getPlayer().getUniqueId() + ".level", 0);
+        Player player = event.getPlayer();
+        if (plugin.getConfig().get(main.xpPath(player)) == null || plugin.getConfig().get(main.manaPath(player)) == null) {
+            plugin.getConfig().set(main.xpPath(player), 0);
+            plugin.getConfig().set(main.manaPath(player), 0);
             plugin.saveConfig();
         }
     }
@@ -34,8 +35,8 @@ public class level implements Listener {
     public void levelManager(PlayerExpChangeEvent event, int amount, Player player) {
 
         if(amount >= 100) {
-            plugin.getConfig().set("eco." + player.getUniqueId() + ".level", plugin.getConfig().getInt("eco." + player.getUniqueId() + ".level") + 1);
-            plugin.getConfig().set("eco." + player.getUniqueId() + ".xp", plugin.getConfig().getInt("eco." + player.getUniqueId() + ".xp") - 100);
+            plugin.getConfig().set(main.manaPath(player), plugin.getConfig().getInt(main.manaPath(player)) + 1);
+            plugin.getConfig().set(main.xpPath(player), plugin.getConfig().getInt(main.xpPath(player)) - 100);
             plugin.saveConfig();
         }
     }
@@ -48,21 +49,21 @@ public class level implements Listener {
         int xptotal = player.getTotalExperience();
         String message = "§e+" + xp + " §eXP";
         player.spigot().sendMessage(ChatMessageType.ACTION_BAR, net.md_5.bungee.api.chat.TextComponent.fromLegacyText(message));
-        plugin.getConfig().set("eco." + player.getUniqueId() + ".xp", xptotal);
+        plugin.getConfig().set(main.xpPath(player), xptotal);
         //plugin.getConfig().set("eco." + player.getUniqueId() + ".xp", main.getInstance().getConfig().getInt("eco." + player.getUniqueId() + ".xp") + xp);
         plugin.saveConfig();
     }
 
 
     public void addXP(int amount, Player player) {
-        plugin.getConfig().set("eco." + player.getUniqueId() + ".xp", plugin.getConfig().getInt("eco." + player.getUniqueId() + ".xp") + amount);
+        plugin.getConfig().set(main.xpPath(player), plugin.getConfig().getInt(main.xpPath(player)) + amount);
         String message = "§e+" + amount + " §eXP";
         player.spigot().sendMessage(ChatMessageType.ACTION_BAR, net.md_5.bungee.api.chat.TextComponent.fromLegacyText(message));
         plugin.saveConfig();
     }
 
     public void removeXP(int amount, Player player) {
-        plugin.getConfig().set("eco." + player.getUniqueId() + ".xp", plugin.getConfig().getInt("eco." + player.getUniqueId() + ".xp") - amount);
+        plugin.getConfig().set(main.xpPath(player), plugin.getConfig().getInt(main.xpPath(player)) - amount);
         String message = "§c-" + amount + " §cXP";
         player.spigot().sendMessage(ChatMessageType.ACTION_BAR, net.md_5.bungee.api.chat.TextComponent.fromLegacyText(message));
         plugin.saveConfig();

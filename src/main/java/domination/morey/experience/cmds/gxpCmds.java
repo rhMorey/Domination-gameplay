@@ -22,7 +22,8 @@ public class gxpCmds implements CommandExecutor {
             if(args.length == 1) {
                 if(isNumber(args[0])) {
                     int amount = Integer.parseInt(args[0]);
-                    plugin.getConfig().set("eco." + player.getUniqueId() + ".xp", plugin.getConfig().getInt("eco." + player.getUniqueId() + ".xp") + amount);
+                    plugin.getConfig().set(main.xpPath(player), plugin.getConfig().getInt(main.xpPath(player)) + amount);
+                    player.setTotalExperience(plugin.getConfig().getInt(main.xpPath(player)));
                     plugin.saveConfig();
                     player.sendMessage(main.prefix + "§eVous avez reçu " + amount + "§e XP");
                 } else {

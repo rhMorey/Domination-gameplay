@@ -1,3 +1,4 @@
+domination\morey\experience\cmds\gmanaCmds.class
 domination\morey\gamemode\flags\flag2.class
 domination\morey\gamemode\flags\flag7.class
 domination\morey\team\team.class
@@ -11,15 +12,13 @@ domination\morey\gamemode\flags\flag3.class
 domination\morey\npc\npcManager.class
 domination\morey\gamemode\capture.class
 domination\morey\economy\cmds\moneyCmds.class
-domination\morey\experience\cmds\glevelCmds.class
 domination\morey\gamemode\flags\flag1.class
 domination\morey\gamemode\flags\flag6.class
 domination\morey\dungeons\customMobs.class
 domination\morey\experience\level.class
 domination\morey\economy\moneyManage.class
 domination\morey\experience\cmds\gxpCmds.class
-domination\morey\experience\cmds\xpCmds.class
-domination\morey\experience\cmds\levelCmds.class
+domination\morey\experience\cmds\statsCmds.class
 domination\morey\gamemode\flags\flag4.class
 domination\morey\mainEvent.class
 domination\morey\economy\cmds\gmoneyCmds.class

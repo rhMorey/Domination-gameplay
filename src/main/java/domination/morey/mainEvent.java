@@ -20,7 +20,7 @@ public class mainEvent implements Listener {
     //
     //
 
-    static String patch = "§6§lPatch§6: V0.4-DEV";
+    static String patch = "§6§lPatch§6: V0.5-DEV";
 
     //
     //
@@ -100,7 +100,7 @@ public class mainEvent implements Listener {
     @EventHandler
     public void chatFormat(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
-        event.setFormat("§e[§f" + plugin.getConfig().get("eco." + player.getUniqueId() + ".level") + "§e] §f" + event.getPlayer().getName() + " §7§l» §r" + event.getMessage());
+        event.setFormat("§e[§f" + plugin.getConfig().get("eco." + player.getUniqueId() + ".xp") + "§e] §f" + event.getPlayer().getName() + " §7§l» §r" + event.getMessage());
     }
 }
 

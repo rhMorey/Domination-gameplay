@@ -16,7 +16,7 @@ commands:
     description: Vous permet de donner de l'xp à un joueur (admin)
     permission-message: "§c§l(!) §cYou don't have permission to use this command."
     permission: domination.gxp
-  glevel:
+  gmana:
     description: Vous permet de donner des levels à un joueur (admin)
     permission-message: "§c§l(!) §cYou don't have permission to use this command."
     permission: domination.glevel
@@ -32,3 +32,7 @@ commands:
     description: Vous permet de passer au grade supérieur
     permission-message: "§c§l(!) §cYou don't have permission to use this command."
     permission: domination.rankup
+  stats:
+    description: Vous montre vos stats
+    permission-message: "§c§l(!) §cYou don't have permission to use this command."
+    permission: domination.stats

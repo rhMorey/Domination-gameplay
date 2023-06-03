@@ -1,5 +1,6 @@
 package domination.morey.experience.cmds;
 
+import domination.morey.main;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -17,19 +18,19 @@ public class rankupCmds implements CommandExecutor {
         Player player = (Player) sender;
         if(s.equals("rankup")) {
             if(args.length == 0) {
-                player.sendMessage("§cSélectionnez un montant d'xp à accorder à votre niveau.");
+                player.sendMessage("§cSélectionnez un montant d'§bÂmes§c à accorder à votre §9Mana§c.");
             } else if(args.length == 1) {
                 if(isNumber(args[0])) {
                     int amount = Integer.parseInt(args[0]);
                     if(player.getLevel() < amount) {
-                        player.sendMessage("§cVous n'avez pas assez de niveau(x).");
+                        player.sendMessage("§cVous n'avez pas assez d'§bÂmes§c.");
                         return false;
                     }
                     player.setLevel(player.getLevel() - amount);
-                    plugin.getConfig().set("eco." + player.getUniqueId() + ".level", plugin.getConfig().getInt("eco." + player.getUniqueId() + ".level") + amount);
-                    player.sendMessage("§eVous avez reçu " + amount + "§e niveau(x).");
+                    plugin.getConfig().set(main.manaPath(player), plugin.getConfig().getInt(main.manaPath(player)) + amount);
+                    player.sendMessage("§eVous avez transférer §b" + amount + " Âme(s) §een §9Mana§e.");
                 } else {
-                    player.sendMessage("§cSélectionnez un montant d'xp valide.");
+                    player.sendMessage("§cSélectionnez un montant d'§bÂmes§c valide.");
                 }
             }
         }
