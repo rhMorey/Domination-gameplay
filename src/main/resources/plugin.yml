@@ -28,3 +28,7 @@ commands:
     description: Vous montre votre level
     permission-message: "§c§l(!) §cYou don't have permission to use this command."
     permission: domination.level
+  rankup:
+    description: Vous permet de passer au grade supérieur
+    permission-message: "§c§l(!) §cYou don't have permission to use this command."
+    permission: domination.rankup

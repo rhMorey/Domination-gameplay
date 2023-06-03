@@ -8,6 +8,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.event.player.PlayerExpChangeEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 import static domination.morey.main.plugin;
@@ -29,30 +30,29 @@ public class level implements Listener {
         }
     }
 
-    public void levelManager(Player player) {
+    @EventHandler
+    public void levelManager(PlayerExpChangeEvent event, int amount, Player player) {
 
-        if (plugin.getConfig().getInt("eco." + player.getUniqueId() + ".xp") >= 100) {
+        if(amount >= 100) {
             plugin.getConfig().set("eco." + player.getUniqueId() + ".level", plugin.getConfig().getInt("eco." + player.getUniqueId() + ".level") + 1);
+            plugin.getConfig().set("eco." + player.getUniqueId() + ".xp", plugin.getConfig().getInt("eco." + player.getUniqueId() + ".xp") - 100);
+            plugin.saveConfig();
         }
     }
 
     @EventHandler
-    public void leveling(EntityDeathEvent event) {
+    public void leveling(PlayerExpChangeEvent event) {
 
-        Entity dead = event.getEntity();
-        if(event.getEntity().getKiller() != null) {
-            Player player = event.getEntity().getKiller();
-            if (dead.getLastDamageCause() instanceof EntityDamageByEntityEvent) {
-                int random = (int) (Math.random() * 5);
-                String message = "§e+" + random + " §eXP";
-                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, net.md_5.bungee.api.chat.TextComponent.fromLegacyText(message));
-                plugin.getConfig().set("eco." + player.getUniqueId() + ".xp", main.getInstance().getConfig().getInt("eco." + player.getUniqueId() + ".xp") + random);
-                levelManager(player);
-                plugin.saveConfig();
-
-            }
-        }
+        Player player = event.getPlayer();
+        int xp = event.getAmount();
+        int xptotal = player.getTotalExperience();
+        String message = "§e+" + xp + " §eXP";
+        player.spigot().sendMessage(ChatMessageType.ACTION_BAR, net.md_5.bungee.api.chat.TextComponent.fromLegacyText(message));
+        plugin.getConfig().set("eco." + player.getUniqueId() + ".xp", xptotal);
+        //plugin.getConfig().set("eco." + player.getUniqueId() + ".xp", main.getInstance().getConfig().getInt("eco." + player.getUniqueId() + ".xp") + xp);
+        plugin.saveConfig();
     }
+
 
     public void addXP(int amount, Player player) {
         plugin.getConfig().set("eco." + player.getUniqueId() + ".xp", plugin.getConfig().getInt("eco." + player.getUniqueId() + ".xp") + amount);

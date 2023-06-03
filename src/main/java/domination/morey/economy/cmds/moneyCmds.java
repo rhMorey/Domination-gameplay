@@ -16,7 +16,7 @@ public class moneyCmds implements CommandExecutor {
 
         Player player = (Player) sender;
         if(s.equalsIgnoreCase("money")) {
-            player.sendMessage("§6Monnaie§7: §a" + plugin.getConfig().get("eco." + player.getUniqueId() + ".money") + "§a Fragment d'émeraude");
+            player.sendMessage("§6Monnaie§7: §a" + plugin.getConfig().get("eco." + player.getUniqueId() + ".money") + "§a Fragment d'émeraude §7(FE)");
         }
         return false;
     }

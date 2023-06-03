@@ -1,11 +1,11 @@
 domination\morey\gamemode\flags\flag2.class
 domination\morey\gamemode\flags\flag7.class
 domination\morey\team\team.class
+domination\morey\experience\cmds\rankupCmds.class
 domination\morey\gamemode\gameplay.class
 domination\morey\gamemode\flags\flag5.class
 domination\morey\npc\pnj\Doran.class
 domination\morey\main.class
-domination\morey\economy\emeraldNuggets.class
 domination\morey\npc\customItem\FauxInutilisee.class
 domination\morey\gamemode\flags\flag3.class
 domination\morey\npc\npcManager.class
@@ -23,3 +23,4 @@ domination\morey\experience\cmds\levelCmds.class
 domination\morey\gamemode\flags\flag4.class
 domination\morey\mainEvent.class
 domination\morey\economy\cmds\gmoneyCmds.class
+domination\morey\dungeons\loot\emeraldNuggets.class
