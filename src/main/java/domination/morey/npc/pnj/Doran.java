@@ -25,26 +25,21 @@ public class Doran implements Listener {
     public Doran() {
         manage = this;
     }
-    static npcManager npc;
     static moneyManage money = new moneyManage();
 
     public static ItemStack item1 = new ItemStack(main.Item(Material.STONE_SWORD, "§fLame de Doran",
-            " ",
             "§7Forgé par de nombreux forgerons local",
             " ",
             "§7Prix: §a10 FE"));
     public static ItemStack item2 = new ItemStack(main.Item(Material.STONE_AXE, "§fHache Dinhîste",
-            " ",
             "§7Forgé par les forgerons de Dinhâm",
             " ",
             "§7Prix: §a30 FE"));
     public static ItemStack item3 = new ItemStack(main.Item(Material.IRON_SWORD, "§fÉpée d'arène brisée",
-            " ",
             "§7Cette épée a été retrouvé dans le Dortmund",
             " ",
             "§7Prix: §a25 FE"));
     public static ItemStack item4 = new ItemStack(main.Item(Material.IRON_HOE, "§aFaux de fermier inutilisée",
-            " ",
             "§7Cette faux a été retrouvé dans un champ",
             "§6§lP: §eInflige Lenteur II pendant 2 secondes à l'impact",
             " ",
@@ -62,13 +57,13 @@ public class Doran implements Listener {
     public Inventory invSword(Player player) {
 
         int myMoney = money.getMoney(player);
-        Inventory inv = Bukkit.createInventory(player, 54, "§c§lVendeur d'arme");
+        Inventory inv = Bukkit.createInventory(player, 54, "§aDoran §8- §aVendeur de lame");
 
         inv.setItem(0, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
         inv.setItem(1, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
         inv.setItem(2, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
         inv.setItem(3, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
-        inv.setItem(4, main.Item(Material.IRON_SWORD, "§e§lVendeur d'épée", " ", "§fCommun, §aAtypique§f, §9Rare§f, §5Épique§f, §6Mythique"));
+        inv.setItem(4, main.Item(Material.IRON_SWORD, "§a§lVendeur de lame", " ", "§fCommun, §aAtypique§f, §9Rare§f, §5Épique§f, §6Mythique"));
         inv.setItem(5, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
         inv.setItem(6, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
         inv.setItem(7, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
@@ -85,7 +80,7 @@ public class Doran implements Listener {
     @EventHandler
     public void ifClicking(InventoryClickEvent event) {
 
-        if (event.getView().getTitle().equals("§c§lVendeur d'arme")) {
+        if (event.getView().getTitle().equals("§aDoran §8- §aVendeur de lame")) {
             if (event.getCurrentItem() == null) return;
             if (event.getCurrentItem().equals(item1)) {
                 purchaseItem(item1, (Player) event.getWhoClicked(), 10);
@@ -119,11 +114,9 @@ public class Doran implements Listener {
     }
 
     @EventHandler
-    public void repairWeapons(PlayerItemDamageEvent event){
-        if(event.getItem() != null) {
-            if(event.getItem().getItemMeta().getLore().contains("§6§lP:")) {
-                event.setCancelled(true);
-            }
+    public void repairWeapons(PlayerItemDamageEvent event) {
+        if (event.getItem().displayName().equals("§aFaux de fermier inutilisée")) {
+            event.setCancelled(true);
         }
     }
 }

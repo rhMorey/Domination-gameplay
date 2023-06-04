@@ -6,6 +6,7 @@ domination\morey\experience\cmds\rankupCmds.class
 domination\morey\gamemode\gameplay.class
 domination\morey\gamemode\flags\flag5.class
 domination\morey\npc\pnj\Doran.class
+domination\morey\experience\cmds\tabCompleter\rankupTabCompleter.class
 domination\morey\main.class
 domination\morey\npc\customItem\FauxInutilisee.class
 domination\morey\gamemode\flags\flag3.class
@@ -14,12 +15,16 @@ domination\morey\gamemode\capture.class
 domination\morey\economy\cmds\moneyCmds.class
 domination\morey\gamemode\flags\flag1.class
 domination\morey\gamemode\flags\flag6.class
+domination\morey\npc\customItem\Dortiate.class
 domination\morey\dungeons\customMobs.class
 domination\morey\experience\level.class
 domination\morey\economy\moneyManage.class
 domination\morey\experience\cmds\gxpCmds.class
+domination\morey\npc\pnj\Olga.class
+domination\morey\npc\cmds\tabCompleter\whereisTabCompleter.class
 domination\morey\experience\cmds\statsCmds.class
 domination\morey\gamemode\flags\flag4.class
 domination\morey\mainEvent.class
+domination\morey\npc\cmds\whereisCmds.class
 domination\morey\economy\cmds\gmoneyCmds.class
 domination\morey\dungeons\loot\emeraldNuggets.class

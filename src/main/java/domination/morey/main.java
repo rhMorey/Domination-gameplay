@@ -8,12 +8,17 @@ import domination.morey.economy.cmds.moneyCmds;
 import domination.morey.dungeons.loot.emeraldNuggets;
 import domination.morey.economy.moneyManage;
 import domination.morey.experience.cmds.*;
+import domination.morey.experience.cmds.tabCompleter.rankupTabCompleter;
 import domination.morey.experience.level;
 import domination.morey.gamemode.capture;
 import domination.morey.gamemode.gameplay;
+import domination.morey.npc.cmds.tabCompleter.whereisTabCompleter;
+import domination.morey.npc.cmds.whereisCmds;
+import domination.morey.npc.customItem.Dortiate;
 import domination.morey.npc.customItem.FauxInutilisee;
 import domination.morey.npc.npcManager;
 import domination.morey.npc.pnj.Doran;
+import domination.morey.npc.pnj.Olga;
 import domination.morey.team.team;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -44,12 +49,22 @@ public final class main extends JavaPlugin {
         logger.info("Domination has been enabled!");
         saveDefaultConfig();
 
+        // COMMANDS
         Bukkit.getPluginCommand("money").setExecutor(new moneyCmds());
         Bukkit.getPluginCommand("gmoney").setExecutor(new gmoneyCmds());
         Bukkit.getPluginCommand("gxp").setExecutor(new gxpCmds());
         Bukkit.getPluginCommand("gmana").setExecutor(new gmanaCmds());
         Bukkit.getPluginCommand("rankup").setExecutor(new rankupCmds());
         Bukkit.getPluginCommand("stats").setExecutor(new statsCmds());
+        Bukkit.getPluginCommand("whereis").setExecutor(new whereisCmds());
+        // COMMANDS
+
+        // TAB COMPLETER
+        getCommand("whereis").setTabCompleter(new whereisTabCompleter());
+        getCommand("rankup").setTabCompleter(new rankupTabCompleter());
+        // TAB COMPLETER
+
+        // EVENTS
         Bukkit.getPluginManager().registerEvents(new team(), this);
         Bukkit.getPluginManager().registerEvents(new capture(), this);
         Bukkit.getPluginManager().registerEvents(new moneyManage(), this);
@@ -59,14 +74,20 @@ public final class main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new npcManager(), this);
         Bukkit.getPluginManager().registerEvents(new customMobs(), this);
         Bukkit.getPluginManager().registerEvents(new emeraldNuggets(), this);
+        // EVENTS
 
         // NPC
         Bukkit.getPluginManager().registerEvents(new Doran(), this);
+        Bukkit.getPluginManager().registerEvents(new Olga(), this);
         // NPC
 
         // ITEMS
         Bukkit.getPluginManager().registerEvents(new FauxInutilisee(), this);
         // ITEMS
+
+        // FULL SET
+        Bukkit.getPluginManager().registerEvents(new Dortiate(), this);
+        // FULL SET
 
         // FLAGS
         Bukkit.getPluginManager().registerEvents(new domination.morey.gamemode.flags.flag1(), this);
@@ -202,6 +223,24 @@ public final class main extends JavaPlugin {
         ILore.add(String.valueOf(lore4));
         ILore.add(String.valueOf(lore5));
         ILore.add(String.valueOf(lore6));
+        IM.setLore(ILore);
+        IM.setDisplayName(name);
+        I.setItemMeta(IM);
+        return I;
+    }
+
+    public static ItemStack Item(Material mat, String name, String lore1, String lore2, String lore3, String lore4, String lore5, String lore6, String lore7) {
+
+        ItemStack I = new ItemStack(mat);
+        ItemMeta IM = I.getItemMeta();
+        List<String> ILore = new ArrayList<>();
+        ILore.add(String.valueOf(lore1));
+        ILore.add(String.valueOf(lore2));
+        ILore.add(String.valueOf(lore3));
+        ILore.add(String.valueOf(lore4));
+        ILore.add(String.valueOf(lore5));
+        ILore.add(String.valueOf(lore6));
+        ILore.add(String.valueOf(lore7));
         IM.setLore(ILore);
         IM.setDisplayName(name);
         I.setItemMeta(IM);

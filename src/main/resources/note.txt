@@ -25,3 +25,17 @@ flag6
 473 91 34
 Statue de sorcier
 flag7
+
+NPC:
+
+Doran :
+
+Entrée principale de Versain
+Lorient :
+https://minesk.in/b4e53044153d49d2bacfcd801e33403c
+
+Olga :
+https://minesk.in/926d9fc5bccb4670af6214c891977274
+
+Alduan :
+https://minesk.in/d7382450c3214b5996bf6613738afd25

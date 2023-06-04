@@ -6,6 +6,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.Objects;
 
 public class emeraldNuggets implements Listener {
 
@@ -14,10 +17,13 @@ public class emeraldNuggets implements Listener {
     public void onClick(PlayerInteractEvent event) {
 
         Player player = event.getPlayer();
-        if(event.getItem().getType().equals(Material.AIR)) return;
-        if(event.getItem().getType().equals(Material.GOLD_NUGGET) && event.getItem().getItemMeta().getDisplayName().equals("§aPièce d'émeraude")) {
-            player.getInventory().removeItem(event.getItem());
+        ItemStack item = event.getItem();
+        if(item == null) return;
+        if(item.getType().equals(Material.GOLD_NUGGET) && event.getItem().getItemMeta().getDisplayName().equals("§aPièce d'émeraude")) {
+            player.getInventory().remove(event.getItem());
             myMoney.addMoney(10, player);
+        } else {
+            return;
         }
     }
 }

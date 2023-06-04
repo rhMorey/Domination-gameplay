@@ -2,12 +2,14 @@ package domination.morey.npc.customItem;
 
 import domination.morey.npc.pnj.Doran;
 import io.papermc.paper.event.player.PrePlayerAttackEntityEvent;
+import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -23,10 +25,14 @@ public class FauxInutilisee implements Listener {
             if (event.getDamager() instanceof Player) {
                 Player player = (Player) event.getDamager();
                 Player target = (Player) event.getEntity();
+                ItemStack identifier = new ItemStack(Material.IRON_HOE);
+                ItemMeta meta = identifier.getItemMeta();
+                meta.setDisplayName(item4.getItemMeta().getDisplayName());
+                identifier.setItemMeta(meta);
                 // DOIT ETRE MODIFIE AUSSI DANS LA CLASS DU PNJ QUI VEND L'ITEM
                 item4.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 5);
                 //
-                if (player.getInventory().getItemInMainHand().equals(item4)) {
+                if (player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(identifier.getItemMeta().getDisplayName())) {
                     target.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 40, 1));
                 }
             }

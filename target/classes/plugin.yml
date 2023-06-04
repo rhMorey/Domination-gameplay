@@ -36,3 +36,7 @@ commands:
     description: Vous montre vos stats
     permission-message: "§c§l(!) §cYou don't have permission to use this command."
     permission: domination.stats
+  whereis:
+    description: Vous montre où sont les pnjs ou lieux importants
+    permission-message: "§c§l(!) §cYou don't have permission to use this command."
+    permission: domination.whereis

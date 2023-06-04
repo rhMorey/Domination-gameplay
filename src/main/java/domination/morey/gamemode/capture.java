@@ -31,28 +31,28 @@ public class capture implements Listener {
         if (flag.contains(playerLocation.getBlockX(), playerLocation.getBlockY(), playerLocation.getBlockZ())) {
             if (team.purple.getEntries().contains(player.getName()) && main.getCenter(flag, y).getType().equals(Material.YELLOW_WOOL)) {
                 main.getCenter(flag, y).setType(Material.WHITE_WOOL);
-                myMoney.addMoney(5, player);
+                myMoney.addMoney(30, player);
                 level.addXP(10, player);
                 Bukkit.broadcastMessage("§6L'équipe §5Violet§6 conteste un drapeau !");
                 return;
             }
             if (team.purple.getEntries().contains(player.getName()) && main.getCenter(flag, y).getType().equals(Material.WHITE_WOOL)) {
                 main.getCenter(flag, y).setType(Material.PURPLE_WOOL);
-                myMoney.addMoney(15, player);
+                myMoney.addMoney(80, player);
                 level.addXP(30, player);
                 Bukkit.broadcastMessage("§6L'équipe §5Violet§6 a capturé un drapeau !");
                 return;
             }
             if (team.yellow.getEntries().contains(player.getName()) && main.getCenter(flag, y).getType().equals(Material.PURPLE_WOOL)) {
                 main.getCenter(flag, y).setType(Material.WHITE_WOOL);
-                myMoney.addMoney(5, player);
+                myMoney.addMoney(30, player);
                 level.addXP(10, player);
                 Bukkit.broadcastMessage("§6L'équipe §eJaune§6 conteste un drapeau !");
                 return;
             }
             if (team.yellow.getEntries().contains(player.getName()) && main.getCenter(flag, y).getType().equals(Material.WHITE_WOOL)) {
                 main.getCenter(flag, y).setType(Material.YELLOW_WOOL);
-                myMoney.addMoney(15, player);
+                myMoney.addMoney(80, player);
                 level.addXP(30, player);
                 Bukkit.broadcastMessage("§6L'équipe §eJaune§6 a capturé un drapeau !");
                 return;

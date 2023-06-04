@@ -31,7 +31,7 @@ public class level implements Listener {
         }
     }
 
-    @EventHandler
+    /*@EventHandler
     public void levelManager(PlayerExpChangeEvent event, int amount, Player player) {
 
         if(amount >= 100) {
@@ -39,7 +39,7 @@ public class level implements Listener {
             plugin.getConfig().set(main.xpPath(player), plugin.getConfig().getInt(main.xpPath(player)) - 100);
             plugin.saveConfig();
         }
-    }
+    }*/
 
     @EventHandler
     public void leveling(PlayerExpChangeEvent event) {

@@ -1,0 +1,2 @@
+Lorsque le joueur clique sur "emeraldNuggets", et qu'il en a 2, cela supprime les 2 en donnant l'effet d'un seul
+

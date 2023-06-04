@@ -20,7 +20,7 @@ public class mainEvent implements Listener {
     //
     //
 
-    static String patch = "§6§lPatch§6: V0.5-DEV";
+    static String patch = "§6§lPatch§6: V0.6-DEV";
 
     //
     //
@@ -101,6 +101,20 @@ public class mainEvent implements Listener {
     public void chatFormat(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
         event.setFormat("§e[§f" + plugin.getConfig().get("eco." + player.getUniqueId() + ".xp") + "§e] §f" + event.getPlayer().getName() + " §7§l» §r" + event.getMessage());
+    }
+
+    @EventHandler
+    public void onSleep(PlayerBedEnterEvent event) {
+        Player player = event.getPlayer();
+        player.sendMessage("§cVous ne pouvez pas dormir pour l'instant, il pourrait s'agir d'une futur mise à jour.");
+        event.setCancelled(true);
+    }
+
+    @EventHandler
+    public void onPortal(PlayerPortalEvent event) {
+        Player player = event.getPlayer();
+        player.sendMessage("§cVous ne pouvez pas utiliser de portail pour l'instant, il pourrait s'agir d'une futur mise à jour.");
+        event.setCancelled(true);
     }
 }
 
