@@ -14,11 +14,9 @@ import domination.morey.gamemode.capture;
 import domination.morey.gamemode.gameplay;
 import domination.morey.npc.cmds.tabCompleter.whereisTabCompleter;
 import domination.morey.npc.cmds.whereisCmds;
-import domination.morey.npc.customItem.Dortiate;
-import domination.morey.npc.customItem.FauxInutilisee;
+import domination.morey.npc.customItem.*;
 import domination.morey.npc.npcManager;
-import domination.morey.npc.pnj.Doran;
-import domination.morey.npc.pnj.Olga;
+import domination.morey.npc.pnj.*;
 import domination.morey.team.team;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -79,10 +77,16 @@ public final class main extends JavaPlugin {
         // NPC
         Bukkit.getPluginManager().registerEvents(new Doran(), this);
         Bukkit.getPluginManager().registerEvents(new Olga(), this);
+        Bukkit.getPluginManager().registerEvents(new Alduan(), this);
+        Bukkit.getPluginManager().registerEvents(new Schesein(), this);
+        Bukkit.getPluginManager().registerEvents(new Lorient(), this);
         // NPC
 
         // ITEMS
         Bukkit.getPluginManager().registerEvents(new FauxInutilisee(), this);
+        Bukkit.getPluginManager().registerEvents(new RagoutChampignonsJaunes(), this);
+        Bukkit.getPluginManager().registerEvents(new ElectrolyseurSchesein(), this);
+        Bukkit.getPluginManager().registerEvents(new FruitDeChorus(), this);
         // ITEMS
 
         // FULL SET

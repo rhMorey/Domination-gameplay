@@ -1,15 +1,22 @@
 package domination.morey;
 
 import domination.morey.economy.moneyManage;
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.Sound;
+import net.md_5.bungee.api.ChatMessageType;
+import org.bukkit.*;
 import org.bukkit.block.Block;
+import org.bukkit.block.BlockState;
+import org.bukkit.block.data.BlockData;
+import org.bukkit.entity.Ageable;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockGrowEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.*;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.material.Crops;
 
 import static domination.morey.main.plugin;
 
@@ -114,6 +121,26 @@ public class mainEvent implements Listener {
     public void onPortal(PlayerPortalEvent event) {
         Player player = event.getPlayer();
         player.sendMessage("§cVous ne pouvez pas utiliser de portail pour l'instant, il pourrait s'agir d'une futur mise à jour.");
+        event.setCancelled(true);
+    }
+
+    @EventHandler
+    public void onBuild(BlockPlaceEvent event) {
+        Player player = event.getPlayer();
+        if(player.isOp()) {
+            return;
+        }
+        player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new net.md_5.bungee.api.chat.TextComponent(main.prefix + "§cVous ne pouvez pas construire."));
+        event.setCancelled(true);
+    }
+
+    @EventHandler
+    public void onBreak(BlockBreakEvent event) {
+        Player player = event.getPlayer();
+        if(player.isOp()) {
+            return;
+        }
+        player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new net.md_5.bungee.api.chat.TextComponent(main.prefix + "§cVous ne pouvez pas casser."));
         event.setCancelled(true);
     }
 }

@@ -10,8 +10,12 @@ domination\morey\experience\cmds\tabCompleter\rankupTabCompleter.class
 domination\morey\main.class
 domination\morey\npc\customItem\FauxInutilisee.class
 domination\morey\gamemode\flags\flag3.class
+domination\morey\npc\customItem\FruitDeChorus.class
 domination\morey\npc\npcManager.class
 domination\morey\gamemode\capture.class
+domination\morey\npc\pnj\Lorient.class
+domination\morey\npc\customItem\ElectrolyseurSchesein.class
+domination\morey\npc\pnj\Schesein.class
 domination\morey\economy\cmds\moneyCmds.class
 domination\morey\gamemode\flags\flag1.class
 domination\morey\gamemode\flags\flag6.class
@@ -22,8 +26,10 @@ domination\morey\economy\moneyManage.class
 domination\morey\experience\cmds\gxpCmds.class
 domination\morey\npc\pnj\Olga.class
 domination\morey\npc\cmds\tabCompleter\whereisTabCompleter.class
+domination\morey\npc\pnj\Alduan.class
 domination\morey\experience\cmds\statsCmds.class
 domination\morey\gamemode\flags\flag4.class
+domination\morey\npc\customItem\RagoutChampignonsJaunes.class
 domination\morey\mainEvent.class
 domination\morey\npc\cmds\whereisCmds.class
 domination\morey\economy\cmds\gmoneyCmds.class

@@ -20,7 +20,7 @@ public class emeraldNuggets implements Listener {
         ItemStack item = event.getItem();
         if(item == null) return;
         if(item.getType().equals(Material.GOLD_NUGGET) && event.getItem().getItemMeta().getDisplayName().equals("§aPièce d'émeraude")) {
-            player.getInventory().remove(event.getItem());
+            player.getInventory().remove(event.getItem().asQuantity(1));
             myMoney.addMoney(10, player);
         } else {
             return;

@@ -18,6 +18,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
+import static domination.morey.npc.npcManager.purchaseItem;
+
 public class Doran implements Listener {
 
     Doran manage;
@@ -98,25 +100,6 @@ public class Doran implements Listener {
                 //
                 purchaseItem(item4, (Player) event.getWhoClicked(), 50);
             }
-        }
-    }
-
-    public void purchaseItem(ItemStack item, Player player, int price) {
-        if(money.getMoney(player) < price) {
-            player.sendMessage("§cVous n'avez pas assez de FE");
-            player.closeInventory();
-            return;
-        }
-        player.getInventory().addItem(item);
-        player.closeInventory();
-        player.sendMessage("§aAchat effectué : " + item.getItemMeta().getDisplayName());
-        money.removeMoney(price, player);
-    }
-
-    @EventHandler
-    public void repairWeapons(PlayerItemDamageEvent event) {
-        if (event.getItem().displayName().equals("§aFaux de fermier inutilisée")) {
-            event.setCancelled(true);
         }
     }
 }
