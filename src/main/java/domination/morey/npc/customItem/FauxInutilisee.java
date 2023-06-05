@@ -1,10 +1,7 @@
 package domination.morey.npc.customItem;
 
-import domination.morey.npc.pnj.Doran;
-import io.papermc.paper.event.player.PrePlayerAttackEntityEvent;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -14,7 +11,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import static domination.morey.npc.pnj.Doran.item4;
+import static domination.morey.npc.pnj.vendor.Doran.item4;
 
 public class FauxInutilisee implements Listener {
 

@@ -30,12 +30,16 @@ NPC:
 
 Doran :
 
-Entrée principale de Versain
+Doran se trouve à l'entrée de Versain, à l'ouest de la carte.
 Lorient :
 https://minesk.in/b4e53044153d49d2bacfcd801e33403c
-
+Lorient se trouve dans le Saloon dans le sanctuaire de Dinhâm, au nord-est de la carte.
 Olga :
 https://minesk.in/926d9fc5bccb4670af6214c891977274
-
+Olga est l'associé de Doran et se trouve à Versain, à l'ouest de la carte.
 Alduan :
 https://minesk.in/d7382450c3214b5996bf6613738afd25
+Alduan se trouve dans l'auberge de Sonthrow, au milieu au sud de la carte.
+Schesein :
+https://minesk.in/064d4a5475d24f6bbf9076b69914559d
+Schesein se trouve dans son laboratoire à côté de l'entrée de l'arène de Dortmund

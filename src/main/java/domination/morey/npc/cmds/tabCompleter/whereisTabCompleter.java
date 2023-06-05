@@ -20,6 +20,8 @@ public class whereisTabCompleter implements TabCompleter {
                 suggestions.add("olga");
                 suggestions.add("lorient");
                 suggestions.add("alduan");
+                suggestions.add("schesein");
+                suggestions.add("elise");
                 return suggestions;
             }
         }

@@ -27,7 +27,7 @@ public class mainEvent implements Listener {
     //
     //
 
-    static String patch = "§6§lPatch§6: V0.6-DEV";
+    static String patch = "§6§lPatch§6: V0.7-ALPHA";
 
     //
     //

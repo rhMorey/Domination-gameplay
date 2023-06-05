@@ -16,7 +16,7 @@ import domination.morey.npc.cmds.tabCompleter.whereisTabCompleter;
 import domination.morey.npc.cmds.whereisCmds;
 import domination.morey.npc.customItem.*;
 import domination.morey.npc.npcManager;
-import domination.morey.npc.pnj.*;
+import domination.morey.npc.pnj.vendor.*;
 import domination.morey.team.team;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -80,6 +80,7 @@ public final class main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new Alduan(), this);
         Bukkit.getPluginManager().registerEvents(new Schesein(), this);
         Bukkit.getPluginManager().registerEvents(new Lorient(), this);
+        Bukkit.getPluginManager().registerEvents(new Elise(), this);
         // NPC
 
         // ITEMS
@@ -87,6 +88,8 @@ public final class main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new RagoutChampignonsJaunes(), this);
         Bukkit.getPluginManager().registerEvents(new ElectrolyseurSchesein(), this);
         Bukkit.getPluginManager().registerEvents(new FruitDeChorus(), this);
+        Bukkit.getPluginManager().registerEvents(new FauxDealite(), this);
+        Bukkit.getPluginManager().registerEvents(new CoeurMer(), this);
         // ITEMS
 
         // FULL SET

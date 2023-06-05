@@ -14,6 +14,7 @@ public class ElectrolyseurSchesein implements Listener {
     public void onRightClick(PlayerInteractEvent event) {
 
         Player player = event.getPlayer();
+        if(event.getItem() == null) return;
         if(event.getItem().getType().equals(Material.LIGHTNING_ROD)) {
             ItemStack item = new ItemStack(Material.LIGHTNING_ROD, 1);
             ItemMeta meta = item.getItemMeta();

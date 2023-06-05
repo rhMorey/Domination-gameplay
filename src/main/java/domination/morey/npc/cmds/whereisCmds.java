@@ -31,6 +31,30 @@ public class whereisCmds implements CommandExecutor {
                         player.sendMessage("§eDoran se trouve à l'entrée de Versain, à l'ouest de la carte.");
                         player.spigot().sendMessage(message);
                         break;
+                    case ("schesein"):
+                        player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_BELL, 1, 1);
+                        player.sendMessage("§eSchesein se trouve dans son laboratoire à côté de l'entrée de l'arène de Dortmund.");
+                        player.spigot().sendMessage(message);
+                        break;
+                    case ("alduan"):
+                        player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_BELL, 1, 1);
+                        player.sendMessage("§eAlduan se trouve dans l'auberge de Sonthrow, au milieu au sud de la carte.");
+                        player.spigot().sendMessage(message);
+                        break;
+                    case ("lorient"):
+                        player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_BELL, 1, 1);
+                        player.sendMessage("§eLorient se trouve dans le Saloon dans le sanctuaire de Dinhâm, au nord-est de la carte.");
+                        player.spigot().sendMessage(message);
+                        break;
+                    case ("Olga"):
+                        player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_BELL, 1, 1);
+                        player.sendMessage("§eOlga est l'associé de Doran et se trouve à Versain, à l'ouest de la carte.");
+                        player.spigot().sendMessage(message);
+                        break;
+                    case ("elise"):
+                        player.playSound(player.getLocation(), Sound.AMBIENT_CAVE, 1, 1);
+                        player.sendMessage("§eNous ne savons pas où se trouve Elise.");
+                        break;
                 }
             }
         }
