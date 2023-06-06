@@ -1,4 +1,4 @@
-package domination.morey.npc.customItem;
+package domination.morey.npc.specialItem;
 
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;

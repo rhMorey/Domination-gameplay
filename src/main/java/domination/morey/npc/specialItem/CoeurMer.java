@@ -1,4 +1,4 @@
-package domination.morey.npc.customItem;
+package domination.morey.npc.specialItem;
 
 import domination.morey.npc.pnj.vendor.Elise;
 import org.bukkit.Sound;

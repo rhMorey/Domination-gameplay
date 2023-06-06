@@ -1,4 +1,4 @@
-package domination.morey.npc.customItem;
+package domination.morey.npc.specialItem;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

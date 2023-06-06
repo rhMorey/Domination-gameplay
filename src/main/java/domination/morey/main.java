@@ -2,6 +2,8 @@ package domination.morey;
 
 import com.sk89q.worldedit.math.BlockVector3;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
+import domination.morey.customItems.ingredients.GraineSoralite;
+import domination.morey.customItems.ingredients.SolidificationArmure;
 import domination.morey.dungeons.customMobs;
 import domination.morey.economy.cmds.gmoneyCmds;
 import domination.morey.economy.cmds.moneyCmds;
@@ -14,7 +16,7 @@ import domination.morey.gamemode.capture;
 import domination.morey.gamemode.gameplay;
 import domination.morey.npc.cmds.tabCompleter.whereisTabCompleter;
 import domination.morey.npc.cmds.whereisCmds;
-import domination.morey.npc.customItem.*;
+import domination.morey.npc.specialItem.*;
 import domination.morey.npc.npcManager;
 import domination.morey.npc.pnj.vendor.*;
 import domination.morey.team.team;
@@ -83,14 +85,14 @@ public final class main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new Elise(), this);
         // NPC
 
-        // ITEMS
+        // SPECIAL ITEMS
         Bukkit.getPluginManager().registerEvents(new FauxInutilisee(), this);
         Bukkit.getPluginManager().registerEvents(new RagoutChampignonsJaunes(), this);
         Bukkit.getPluginManager().registerEvents(new ElectrolyseurSchesein(), this);
         Bukkit.getPluginManager().registerEvents(new FruitDeChorus(), this);
         Bukkit.getPluginManager().registerEvents(new FauxDealite(), this);
         Bukkit.getPluginManager().registerEvents(new CoeurMer(), this);
-        // ITEMS
+        // SPECIAL ITEMS
 
         // FULL SET
         Bukkit.getPluginManager().registerEvents(new Dortiate(), this);
@@ -105,6 +107,11 @@ public final class main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new domination.morey.gamemode.flags.flag6(), this);
         Bukkit.getPluginManager().registerEvents(new domination.morey.gamemode.flags.flag7(), this);
         // FLAGS
+
+        // CUSTOM CRAFT
+        getServer().addRecipe(SolidificationArmure.onCraft());
+        getServer().addRecipe(GraineSoralite.onCraft());
+        // CUSTOM CRAFT
     }
 
     @Override
