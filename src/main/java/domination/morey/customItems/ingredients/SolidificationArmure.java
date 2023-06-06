@@ -17,16 +17,19 @@ public class SolidificationArmure implements Listener {
         return solidificationArmure;
     }
 
+    public static ItemStack item = new ItemStack(main.Item(Material.PHANTOM_MEMBRANE, "§fSolidification d'armure", "§7Cet objet doit être ajouté à votre armure afin de la solidifier.",
+            " ",
+            "§7L'armure doit être §9rare§7 ou plus."));
+
     public static ShapedRecipe onCraft() {
 
-        ItemStack item = new ItemStack(main.Item(Material.PHANTOM_MEMBRANE, "§fSolidification d'armure", "§7Cet objet est à ajouter à votre armure pour la solidifier"));
-        NamespacedKey nsKey = new NamespacedKey(plugin, "solid_armor");
+        NamespacedKey nsKey = new NamespacedKey(plugin, "iron_solidification");
         ShapedRecipe recipe = new ShapedRecipe(nsKey, item);
         recipe.shape("CAC", "ABA", "CAC");
 
-        recipe.setIngredient('B', Material.IRON_INGOT);
+        recipe.setIngredient('B', Material.NAUTILUS_SHELL);
         recipe.setIngredient('C', Material.LEATHER);
-        recipe.setIngredient('A', Material.AIR);
+        recipe.setIngredient('A', Material.IRON_INGOT);
         return recipe;
     }
 }

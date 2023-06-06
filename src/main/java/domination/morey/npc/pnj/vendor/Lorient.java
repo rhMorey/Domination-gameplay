@@ -67,6 +67,9 @@ public class Lorient implements Listener {
         inv.setItem(8, main.Item(Material.PAPER, "§6§lProfile§6: §e" + player.getName(), " ", "§aFragment d'émeraude§f: §a" + myMoney + " FE"));
 
         inv.setItem(20, item1);
+        inv.setItem(21, item2);
+        inv.setItem(22, item3);
+        inv.setItem(23, item4);
 
         return inv;
     }

@@ -2,7 +2,8 @@ package domination.morey;
 
 import com.sk89q.worldedit.math.BlockVector3;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
-import domination.morey.customItems.ingredients.GraineSoralite;
+import domination.morey.customItems.armor.GladiateurReinforced;
+import domination.morey.customItems.ingredients.FragmentOmbre;
 import domination.morey.customItems.ingredients.SolidificationArmure;
 import domination.morey.dungeons.customMobs;
 import domination.morey.economy.cmds.gmoneyCmds;
@@ -57,6 +58,7 @@ public final class main extends JavaPlugin {
         Bukkit.getPluginCommand("rankup").setExecutor(new rankupCmds());
         Bukkit.getPluginCommand("stats").setExecutor(new statsCmds());
         Bukkit.getPluginCommand("whereis").setExecutor(new whereisCmds());
+        Bukkit.getPluginCommand("glevel").setExecutor(new glevelCmds());
         // COMMANDS
 
         // TAB COMPLETER
@@ -96,6 +98,7 @@ public final class main extends JavaPlugin {
 
         // FULL SET
         Bukkit.getPluginManager().registerEvents(new Dortiate(), this);
+        Bukkit.getPluginManager().registerEvents(new GladiateurAmateur(), this);
         // FULL SET
 
         // FLAGS
@@ -109,8 +112,10 @@ public final class main extends JavaPlugin {
         // FLAGS
 
         // CUSTOM CRAFT
+        Bukkit.resetRecipes();
         getServer().addRecipe(SolidificationArmure.onCraft());
-        getServer().addRecipe(GraineSoralite.onCraft());
+        getServer().addRecipe(GladiateurReinforced.onCraft());
+        getServer().addRecipe(FragmentOmbre.onCraft());
         // CUSTOM CRAFT
     }
 

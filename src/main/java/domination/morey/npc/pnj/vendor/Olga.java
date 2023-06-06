@@ -16,6 +16,7 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 
+import static domination.morey.npc.npcManager.leatherMeta;
 import static domination.morey.npc.npcManager.purchaseItem;
 
 public class Olga implements Listener {
@@ -27,6 +28,9 @@ public class Olga implements Listener {
     }
     static moneyManage money = new moneyManage();
 
+    //
+    // DPS SET
+    //
     public static ItemStack item1 = new ItemStack(main.Item(Material.LEATHER_HELMET, "§aChapeau Dortiate",
             "§7Cet objet appartient à l'ensemble §bDortiate",
             " ",
@@ -46,6 +50,34 @@ public class Olga implements Listener {
             "§6§lFS: §eEffet vitesse I tant que vous portez l'ensemble §bDortiate",
             " ",
             "§7Prix: §a285 FE"));
+    public static ItemStack item5 = new ItemStack(main.Item(Material.CHAINMAIL_CHESTPLATE, "§9Plastron du Gladiateur d'élite",
+            "§7Cet objet appartient à l'ensemble §bGladiateur amateur",
+            "§7Stats:",
+            "§bProtection II",
+            " ",
+            "§7Prix: §a680 FE"));
+    //
+    // TANK SET
+    //
+    public static ItemStack item6 = new ItemStack(main.Item(Material.CHAINMAIL_HELMET, "§aCasque du Gladiateur amateur",
+            "§7Cet objet appartient à l'ensemble §bGladiateur amateur",
+            " ",
+            "§7Prix: §a320 FE"));
+    public static ItemStack item7 = new ItemStack(main.Item(Material.IRON_CHESTPLATE, "§aPlastron du Gladiateur amateur",
+            "§7Cet objet appartient à l'ensemble §bGladiateur amateur",
+            "§7Stats:",
+            "§bProtection I",
+            " ",
+            "§7Prix: §a490 FE"));
+    public static ItemStack item8 = new ItemStack(main.Item(Material.CHAINMAIL_LEGGINGS, "§aJambières du Gladiateur amateur",
+            "§7Cet objet appartient à l'ensemble §bGladiateur amateur",
+            " ",
+            "§7Prix: §a310 FE"));
+    public static ItemStack item9 = new ItemStack(main.Item(Material.CHAINMAIL_BOOTS, "§aBottes du Gladiateur amateur",
+            "§7Cet objet appartient à l'ensemble §bGladiateur amateur",
+            "§6§lFS: §eEffet résistance I tant que vous portez l'ensemble §bGladiateur amateur §8(épée inclus)",
+            " ",
+            "§7Prix: §a300 FE"));
 
     @EventHandler
     public void interactNpc(NPCRightClickEvent event) {
@@ -65,6 +97,7 @@ public class Olga implements Listener {
         // ITEM PARAMETER
         item1.addItemFlags(ItemFlag.HIDE_DYE);
         item2.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        item5.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         item2.addItemFlags(ItemFlag.HIDE_DYE);
         item3.addItemFlags(ItemFlag.HIDE_DYE);
         item4.addItemFlags(ItemFlag.HIDE_DYE);
@@ -88,6 +121,11 @@ public class Olga implements Listener {
         inv.setItem(21, item2);
         inv.setItem(22, item3);
         inv.setItem(23, item4);
+        inv.setItem(24, item5);
+        inv.setItem(29, item6);
+        inv.setItem(30, item7);
+        inv.setItem(31, item8);
+        inv.setItem(32, item9);
 
         return inv;
     }
@@ -134,14 +172,27 @@ public class Olga implements Listener {
                 //
                 purchaseItem(item4, (Player) event.getWhoClicked(), 285);
             }
+            if(event.getCurrentItem().equals(item5)) {
+                //
+                item5.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
+                //
+                purchaseItem(item5, (Player) event.getWhoClicked(), 680);
+            }
+            if(event.getCurrentItem().equals(item6)) {
+                purchaseItem(item6, (Player) event.getWhoClicked(), 320);
+            }
+            if(event.getCurrentItem().equals(item7)) {
+                //
+                item7.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
+                //
+                purchaseItem(item7, (Player) event.getWhoClicked(), 490);
+            }
+            if(event.getCurrentItem().equals(item8)) {
+                purchaseItem(item8, (Player) event.getWhoClicked(), 310);
+            }
+            if(event.getCurrentItem().equals(item9)) {
+                purchaseItem(item9, (Player) event.getWhoClicked(), 300);
+            }
         }
     }
-
-    public void leatherMeta(ItemStack item, Color color) {
-        LeatherArmorMeta item1m = (LeatherArmorMeta) item.getItemMeta();
-        assert item1m != null;
-        item1m.setColor(color);
-        item.setItemMeta(item1m);
-    }
-
 }

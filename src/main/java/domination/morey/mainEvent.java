@@ -10,6 +10,7 @@ import org.bukkit.entity.Ageable;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockGrowEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
@@ -27,7 +28,7 @@ public class mainEvent implements Listener {
     //
     //
 
-    static String patch = "§6§lPatch§6: V0.7-ALPHA";
+    static String patch = "§6§lPatch§6: V0.8-DEV";
 
     //
     //
@@ -100,7 +101,7 @@ public class mainEvent implements Listener {
     public void info(PlayerJoinEvent event) {
 
         Player player = event.getPlayer();
-        player.sendMessage("§f§lNEWS §7§l» \n" + patch);
+        player.sendMessage("§f§lNEWS §7§l» \n§7NEI ou JEI sont conseillés pour une bonne expérience sur ce serveur.\n" + patch);
         player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_BELL, 1, 1);
     }
 
@@ -142,6 +143,18 @@ public class mainEvent implements Listener {
         }
         player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new net.md_5.bungee.api.chat.TextComponent(main.prefix + "§cVous ne pouvez pas casser."));
         event.setCancelled(true);
+    }
+
+    @EventHandler
+    public void onUseAnvil(PlayerInteractEvent event) {
+
+        Player player = event.getPlayer();
+        if(event.getAction() == Action.RIGHT_CLICK_BLOCK) {
+            if(event.getClickedBlock().getType() == Material.ANVIL) {
+                event.setCancelled(true);
+                player.sendMessage("§cVous ne pouvez pas utiliser d'enclume pour l'instant, il pourrait s'agir d'une futur mise à jour.");
+            }
+        }
     }
 }
 

@@ -40,3 +40,7 @@ commands:
     description: Vous montre où sont les pnjs ou lieux importants
     permission-message: "§c§l(!) §cYou don't have permission to use this command."
     permission: domination.whereis
+  glevel:
+    description: Vous permet de donner des levels à un joueur (admin)
+    permission-message: "§c§l(!) §cYou don't have permission to use this command."
+    permission: domination.glevel

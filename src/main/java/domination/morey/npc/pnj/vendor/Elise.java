@@ -15,6 +15,7 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 
 import static domination.morey.npc.npcManager.purchaseItem;
+import static domination.morey.npc.npcManager.spiritPurchaseItem;
 
 public class Elise implements Listener {
 
@@ -29,13 +30,13 @@ public class Elise implements Listener {
             " ",
             "§6§lP: §eLorsque cette faux tue un joueur/monstre, le détenteur gagne §b4 âmes§e/§b1 âme§e.",
             " ",
-            "§7Prix: §a1180 FE"));
+            "§7Prix: §b75 Âmes"));
     public static ItemStack item2 = new ItemStack(main.Item(Material.HEART_OF_THE_SEA, "§5Cœur de la Mer",
             " ",
             "§6§lP: §eCe coeur vous donne Résistance I et Absorption II",
             "§6§lActif: §eVous donne Résistance III, Absorption IV, Régénération II pendant 30 secondes",
             " ",
-            "§7Prix: §a3900 FE"));
+            "§7Prix: §b215 Âmes"));
     @EventHandler
     public void interactNpc(NPCRightClickEvent event) {
 
@@ -79,10 +80,10 @@ public class Elise implements Listener {
                 //
                 item1.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 8);
                 //
-                purchaseItem(item1, (Player) event.getWhoClicked(), 1180);
+                spiritPurchaseItem(item1, (Player) event.getWhoClicked(), 75);
             }
             if(event.getCurrentItem().equals(item2)) {
-                purchaseItem(item2, (Player) event.getWhoClicked(), 3900);
+                spiritPurchaseItem(item2, (Player) event.getWhoClicked(), 215);
             }
         }
     }

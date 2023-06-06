@@ -43,6 +43,14 @@ public class Doran implements Listener {
             " ",
             "§7Prix: §a110 FE"));
 
+    //
+    // TANK SET
+    //
+    public static ItemStack item5 = new ItemStack(main.Item(Material.STONE_SWORD, "§aÉpée du Gladiateur amateur",
+            "§7Cet objet appartient à l'ensemble §bGladiateur amateur",
+            " ",
+            "§7Prix: §a190 FE"));
+
     @EventHandler
     public void interactNpc(NPCRightClickEvent event) {
 
@@ -70,7 +78,8 @@ public class Doran implements Listener {
         inv.setItem(20, item1);
         inv.setItem(21, item2);
         inv.setItem(22, item3);
-        inv.setItem(24, item4);
+        inv.setItem(23, item4);
+        inv.setItem(24, item5);
 
         return inv;
     }
@@ -95,6 +104,9 @@ public class Doran implements Listener {
                 item4.addItemFlags(ItemFlag.HIDE_ENCHANTS);
                 //
                 purchaseItem(item4, (Player) event.getWhoClicked(), 110);
+            }
+            if(event.getCurrentItem().equals(item5)) {
+                purchaseItem(item5, (Player) event.getWhoClicked(), 190);
             }
         }
     }
