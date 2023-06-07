@@ -34,7 +34,7 @@ public class GladiateurReinforced implements Listener {
         Olga.item5.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
         Olga.item5.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         recipe.setIngredient('B', Olga.item5);
-        recipe.setIngredient('A', SolidificationArmure.item);
+        recipe.setIngredient('A', SolidificationArmure.result);
         recipe.setIngredient('C', Material.AIR);
         return recipe;
     }

@@ -101,6 +101,10 @@ public class Olga implements Listener {
         item2.addItemFlags(ItemFlag.HIDE_DYE);
         item3.addItemFlags(ItemFlag.HIDE_DYE);
         item4.addItemFlags(ItemFlag.HIDE_DYE);
+        leatherMeta(item1, Color.GRAY);
+        leatherMeta(item2, Color.GRAY);
+        leatherMeta(item3, Color.GRAY);
+        leatherMeta(item4, Color.GRAY);
         // ITEM PARAMETER
 
         inv.setItem(0, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
@@ -113,10 +117,6 @@ public class Olga implements Listener {
         inv.setItem(7, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
         inv.setItem(8, main.Item(Material.PAPER, "§6§lProfile§6: §e" + player.getName(), " ", "§aFragment d'émeraude§f: §a" + myMoney + " FE"));
 
-        leatherMeta(item1, Color.GRAY);
-        leatherMeta(item2, Color.GRAY);
-        leatherMeta(item3, Color.GRAY);
-        leatherMeta(item4, Color.GRAY);
         inv.setItem(20, item1);
         inv.setItem(21, item2);
         inv.setItem(22, item3);

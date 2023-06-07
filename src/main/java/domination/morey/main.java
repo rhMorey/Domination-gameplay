@@ -5,6 +5,8 @@ import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import domination.morey.customItems.armor.GladiateurReinforced;
 import domination.morey.customItems.ingredients.FragmentOmbre;
 import domination.morey.customItems.ingredients.SolidificationArmure;
+import domination.morey.customItems.items.LanterneOmbre;
+import domination.morey.customItems.itemsEvent.LanterneOmbreEvents;
 import domination.morey.dungeons.customMobs;
 import domination.morey.economy.cmds.gmoneyCmds;
 import domination.morey.economy.cmds.moneyCmds;
@@ -21,6 +23,8 @@ import domination.morey.npc.specialItem.*;
 import domination.morey.npc.npcManager;
 import domination.morey.npc.pnj.vendor.*;
 import domination.morey.team.team;
+import domination.morey.team.whichclass.tabCompleter.classeTabCompleter;
+import domination.morey.team.whichclass.classeCmds;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -59,11 +63,13 @@ public final class main extends JavaPlugin {
         Bukkit.getPluginCommand("stats").setExecutor(new statsCmds());
         Bukkit.getPluginCommand("whereis").setExecutor(new whereisCmds());
         Bukkit.getPluginCommand("glevel").setExecutor(new glevelCmds());
+        Bukkit.getPluginCommand("classe").setExecutor(new classeCmds());
         // COMMANDS
 
         // TAB COMPLETER
         getCommand("whereis").setTabCompleter(new whereisTabCompleter());
         getCommand("rankup").setTabCompleter(new rankupTabCompleter());
+        getCommand("classe").setTabCompleter(new classeTabCompleter());
         // TAB COMPLETER
 
         // EVENTS
@@ -76,6 +82,7 @@ public final class main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new npcManager(), this);
         Bukkit.getPluginManager().registerEvents(new customMobs(), this);
         Bukkit.getPluginManager().registerEvents(new emeraldNuggets(), this);
+        Bukkit.getPluginManager().registerEvents(new LanterneOmbreEvents(), this);
         // EVENTS
 
         // NPC
@@ -85,6 +92,7 @@ public final class main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new Schesein(), this);
         Bukkit.getPluginManager().registerEvents(new Lorient(), this);
         Bukkit.getPluginManager().registerEvents(new Elise(), this);
+        Bukkit.getPluginManager().registerEvents(new Mila(), this);
         // NPC
 
         // SPECIAL ITEMS
@@ -99,6 +107,7 @@ public final class main extends JavaPlugin {
         // FULL SET
         Bukkit.getPluginManager().registerEvents(new Dortiate(), this);
         Bukkit.getPluginManager().registerEvents(new GladiateurAmateur(), this);
+        Bukkit.getPluginManager().registerEvents(new Celion(), this);
         // FULL SET
 
         // FLAGS
@@ -112,10 +121,12 @@ public final class main extends JavaPlugin {
         // FLAGS
 
         // CUSTOM CRAFT
-        Bukkit.resetRecipes();
+        logger.info("Loading custom recipes...");
         getServer().addRecipe(SolidificationArmure.onCraft());
         getServer().addRecipe(GladiateurReinforced.onCraft());
         getServer().addRecipe(FragmentOmbre.onCraft());
+        getServer().addRecipe(LanterneOmbre.onCraft());
+        logger.info("Recipes loaded!");
         // CUSTOM CRAFT
     }
 
@@ -124,6 +135,8 @@ public final class main extends JavaPlugin {
 
         Logger logger = getLogger();
         logger.info("Domination has been disabled!");
+        Bukkit.resetRecipes();
+        logger.info("Recipes has been reset!");
     }
 
     public static main getInstance() {

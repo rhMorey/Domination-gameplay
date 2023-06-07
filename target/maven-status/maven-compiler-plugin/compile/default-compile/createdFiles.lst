@@ -8,6 +8,8 @@ domination\morey\npc\specialItem\RagoutChampignonsJaunes.class
 domination\morey\npc\specialItem\CoeurMer.class
 domination\morey\gamemode\flags\flag5.class
 domination\morey\main.class
+domination\morey\team\whichclass\classeCmds.class
+domination\morey\npc\pnj\vendor\Mila.class
 domination\morey\npc\npcManager.class
 domination\morey\npc\pnj\cp\cp1.class
 domination\morey\economy\cmds\moneyCmds.class
@@ -17,10 +19,11 @@ domination\morey\gamemode\flags\flag1.class
 domination\morey\dungeons\customMobs.class
 domination\morey\economy\moneyManage.class
 domination\morey\experience\cmds\gxpCmds.class
+domination\morey\npc\specialItem\Celion.class
 domination\morey\npc\specialItem\FruitDeChorus.class
 domination\morey\npc\cmds\tabCompleter\whereisTabCompleter.class
-domination\morey\customItems\armor\DortiateReinforced.class
 domination\morey\npc\specialItem\ElectrolyseurSchesein.class
+domination\morey\customItems\armor\GladiateurReinforced.class
 domination\morey\gamemode\flags\flag4.class
 domination\morey\mainEvent.class
 domination\morey\npc\cmds\whereisCmds.class
@@ -34,10 +37,13 @@ domination\morey\experience\cmds\tabCompleter\rankupTabCompleter.class
 domination\morey\npc\specialItem\GladiateurAmateur.class
 domination\morey\gamemode\flags\flag3.class
 domination\morey\npc\specialItem\FauxDealite.class
+domination\morey\team\whichclass\tabCompleter\classeTabCompleter.class
+domination\morey\customItems\itemsEvent\LanterneOmbreEvents.class
 domination\morey\customItems\ingredients\SolidificationArmure.class
 domination\morey\npc\specialItem\FauxInutilisee.class
 domination\morey\gamemode\capture.class
 domination\morey\customItems\customItems.class
+domination\morey\customItems\items\LanterneOmbre.class
 domination\morey\npc\pnj\vendor\Schesein.class
 domination\morey\gamemode\flags\flag6.class
 domination\morey\experience\level.class
