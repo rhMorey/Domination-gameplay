@@ -19,10 +19,15 @@ import domination.morey.gamemode.capture;
 import domination.morey.gamemode.gameplay;
 import domination.morey.npc.cmds.tabCompleter.whereisTabCompleter;
 import domination.morey.npc.cmds.whereisCmds;
+import domination.morey.npc.pnj.bank.Banquier;
+import domination.morey.npc.pnj.seller.CollectionneurDepouille;
+import domination.morey.npc.pnj.seller.EchangeurFortune;
+import domination.morey.npc.pnj.seller.MembreCreynois;
 import domination.morey.npc.specialItem.*;
 import domination.morey.npc.npcManager;
 import domination.morey.npc.pnj.vendor.*;
 import domination.morey.team.team;
+import domination.morey.team.whichclass.classeEvent;
 import domination.morey.team.whichclass.tabCompleter.classeTabCompleter;
 import domination.morey.team.whichclass.classeCmds;
 import org.bukkit.Bukkit;
@@ -83,6 +88,7 @@ public final class main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new customMobs(), this);
         Bukkit.getPluginManager().registerEvents(new emeraldNuggets(), this);
         Bukkit.getPluginManager().registerEvents(new LanterneOmbreEvents(), this);
+        Bukkit.getPluginManager().registerEvents(new classeEvent(), this);
         // EVENTS
 
         // NPC
@@ -93,6 +99,10 @@ public final class main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new Lorient(), this);
         Bukkit.getPluginManager().registerEvents(new Elise(), this);
         Bukkit.getPluginManager().registerEvents(new Mila(), this);
+        Bukkit.getPluginManager().registerEvents(new CollectionneurDepouille(), this);
+        Bukkit.getPluginManager().registerEvents(new EchangeurFortune(), this);
+        Bukkit.getPluginManager().registerEvents(new MembreCreynois(), this);
+        Bukkit.getPluginManager().registerEvents(new Banquier(), this);
         // NPC
 
         // SPECIAL ITEMS
@@ -102,6 +112,7 @@ public final class main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new FruitDeChorus(), this);
         Bukkit.getPluginManager().registerEvents(new FauxDealite(), this);
         Bukkit.getPluginManager().registerEvents(new CoeurMer(), this);
+        Bukkit.getPluginManager().registerEvents(new ModuleRapidite(), this);
         // SPECIAL ITEMS
 
         // FULL SET
@@ -163,6 +174,9 @@ public final class main extends JavaPlugin {
     }
     public static String xpPath(Player player) {
         return "eco." + player.getUniqueId() + ".xp";
+    }
+    public static String classePath(Player player) {
+        return "eco." + player.getUniqueId() + ".classe";
     }
 
     //

@@ -10,9 +10,11 @@ C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\mo
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\npc\pnj\vendor\Doran.java
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\gamemode\capture.java
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\gamemode\flags\flag5.java
+C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\npc\pnj\seller\EchangeurFortune.java
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\team\whichclass\tabCompleter\classeTabCompleter.java
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\npc\cmds\whereisCmds.java
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\npc\pnj\vendor\Mila.java
+C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\team\whichclass\classeEvent.java
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\team\whichclass\classeCmds.java
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\experience\cmds\statsCmds.java
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\dungeons\loot\emeraldNuggets.java
@@ -20,6 +22,7 @@ C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\mo
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\experience\cmds\rankupCmds.java
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\npc\specialItem\CoeurMer.java
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\npc\npcManager.java
+C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\npc\pnj\seller\CollectionneurDepouille.java
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\dungeons\customMobs.java
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\npc\specialItem\GladiateurAmateur.java
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\gamemode\flags\flag3.java
@@ -32,7 +35,6 @@ C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\mo
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\main.java
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\npc\pnj\vendor\Lorient.java
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\npc\specialItem\RagoutChampignonsJaunes.java
-C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\npc\pnj\cp\cp1.java
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\mainEvent.java
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\npc\specialItem\FruitDeChorus.java
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\customItems\customItems.java
@@ -40,6 +42,7 @@ C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\mo
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\gamemode\flags\flag4.java
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\economy\cmds\gmoneyCmds.java
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\gamemode\flags\flag7.java
+C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\npc\pnj\seller\MembreCreynois.java
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\economy\cmds\moneyCmds.java
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\npc\specialItem\Celion.java
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\customItems\items\LanterneOmbre.java
@@ -50,3 +53,4 @@ C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\mo
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\npc\cmds\tabCompleter\whereisTabCompleter.java
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\npc\pnj\vendor\Elise.java
 C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\npc\specialItem\FauxDealite.java
+C:\Users\Shadow\Documents\GitHub\Domination-gameplay\src\main\java\domination\morey\npc\specialItem\ModuleRapidite.java

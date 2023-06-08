@@ -35,6 +35,12 @@ public class Alduan implements Listener {
             "§6§lConso: §eRésistance I pendant 12 secondes",
             " ",
             "§7Prix: §a220 FE"));
+    public static ItemStack item6 = new ItemStack(main.Item(Material.CHICKEN, "§fPoulet",
+            " ",
+            "§7Prix: §a5 FE"));
+    public static ItemStack item7 = new ItemStack(main.Item(Material.FEATHER, "§fPlume",
+            " ",
+            "§7Prix: §a3 FE"));
 
     Alduan manage;
 
@@ -76,6 +82,8 @@ public class Alduan implements Listener {
         inv.setItem(22, item3);
         inv.setItem(23, item4);
         inv.setItem(24, item5);
+        inv.setItem(29, item6);
+        inv.setItem(30, item7);
 
         return inv;
     }
@@ -99,6 +107,12 @@ public class Alduan implements Listener {
             }
             if(event.getCurrentItem().equals(item5)) {
                 purchaseItem(item5, (Player) event.getWhoClicked(), 220);
+            }
+            if(event.getCurrentItem().equals(item6)) {
+                purchaseItem(item6, (Player) event.getWhoClicked(), 5);
+            }
+            if(event.getCurrentItem().equals(item7)) {
+                purchaseItem(item7, (Player) event.getWhoClicked(), 3);
             }
         }
     }

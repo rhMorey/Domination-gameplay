@@ -29,7 +29,8 @@ public class FauxInutilisee implements Listener {
                 // DOIT ETRE MODIFIE AUSSI DANS LA CLASS DU PNJ QUI VEND L'ITEM
                 item4.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 5);
                 //
-                if (player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(identifier.getItemMeta().getDisplayName())) {
+                if(player.getInventory().getItemInMainHand().getItemMeta() == null) return;
+                if (player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals("§aFaux de fermier inutilisée")) {
                     target.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 40, 1));
                 }
             }

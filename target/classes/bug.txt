@@ -1,0 +1,4 @@
+Si on change l'itemmeta d'un item, alors l'item n'est plus utilisable ou alors son passif/activable n'est plus utilisable, alors il faut ABSOLUMENT que les mises à jours qui soient sur les items ne changent pas le nom /!\, et que les codes comparent uniquement le nom des objets !
+Si on change l'itemmeta d'un item, alors l'item n'est plus utilisable ou alors son passif/activable n'est plus utilisable, alors il faut ABSOLUMENT que les mises à jours qui soient sur les items ne changent pas le nom /!\, et que les codes comparent uniquement le nom des objets !
+Si on change l'itemmeta d'un item, alors l'item n'est plus utilisable ou alors son passif/activable n'est plus utilisable, alors il faut ABSOLUMENT que les mises à jours qui soient sur les items ne changent pas le nom /!\, et que les codes comparent uniquement le nom des objets !
+

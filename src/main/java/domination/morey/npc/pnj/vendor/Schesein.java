@@ -28,6 +28,11 @@ public class Schesein implements Listener {
             "§6§lActif: §eInflige des dégâts de foudre à l'impact",
             " ",
             "§7Prix: §a320 FE"));
+    public static ItemStack item2 = new ItemStack(main.Item(Material.REDSTONE, "§9Module de rapidité",
+            "§7Cet objet a été créer par Schesein",
+            "§6§lActif: §eDonne 10 secondes de vitesse III",
+            " ",
+            "§7Prix: §a290 FE"));
 
     @EventHandler
     public void interactNpc(NPCRightClickEvent event) {
@@ -59,6 +64,7 @@ public class Schesein implements Listener {
         inv.setItem(8, main.Item(Material.PAPER, "§6§lProfile§6: §e" + player.getName(), " ", "§aFragment d'émeraude§f: §a" + myMoney + " FE"));
 
         inv.setItem(20, item1);
+        inv.setItem(21, item2);
 
         return inv;
     }
@@ -70,6 +76,9 @@ public class Schesein implements Listener {
             if (event.getCurrentItem() == null) return;
             if (event.getCurrentItem().equals(item1)) {
                 purchaseItem(item1, (Player) event.getWhoClicked(), 320);
+            }
+            if(event.getCurrentItem().equals(item2)) {
+                purchaseItem(item2, (Player) event.getWhoClicked(), 290);
             }
         }
     }
