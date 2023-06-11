@@ -10,14 +10,14 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 
-import static domination.morey.npc.npcManager.leatherMeta;
-import static domination.morey.npc.npcManager.purchaseItem;
+import static domination.morey.npc.npcManager.*;
 
 public class Olga implements Listener {
 
@@ -115,7 +115,7 @@ public class Olga implements Listener {
         inv.setItem(5, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
         inv.setItem(6, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
         inv.setItem(7, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
-        inv.setItem(8, main.Item(Material.PAPER, "§6§lProfile§6: §e" + player.getName(), " ", "§aFragment d'émeraude§f: §a" + myMoney + " FE"));
+        inv.setItem(8, paper(player));
 
         inv.setItem(20, item1);
         inv.setItem(21, item2);
@@ -135,16 +135,19 @@ public class Olga implements Listener {
 
         if (event.getView().getTitle().equals("§aOlga §8- §aGladiateur")) {
             if (event.getCurrentItem() == null) return;
-            if (event.getCurrentItem().equals(item1)) {
+            if(event.getAction().equals(InventoryAction.MOVE_TO_OTHER_INVENTORY)) {
+                event.setCancelled(true);
+            }
+            else if (event.getCurrentItem().equals(item1)) {
                 //
                 LeatherArmorMeta item1m = (LeatherArmorMeta) item1.getItemMeta();
                 assert item1m != null;
                 item1m.setColor(Color.GRAY);
                 item1.setItemMeta(item1m);
                 //
-                purchaseItem(item1, (Player) event.getWhoClicked(), 300);
+                purchaseItem(event, item1, (Player) event.getWhoClicked(), 300);
             }
-            if (event.getCurrentItem().equals(item2)) {
+            else if (event.getCurrentItem().equals(item2)) {
                 //
                 LeatherArmorMeta item1m = (LeatherArmorMeta) item2.getItemMeta();
                 assert item1m != null;
@@ -152,46 +155,48 @@ public class Olga implements Listener {
                 item2.setItemMeta(item1m);
                 item2.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
                 //
-                purchaseItem(item2, (Player) event.getWhoClicked(), 460);
+                purchaseItem(event, item2, (Player) event.getWhoClicked(), 460);
             }
-            if (event.getCurrentItem().equals(item3)) {
+            else if (event.getCurrentItem().equals(item3)) {
                 //
                 LeatherArmorMeta item1m = (LeatherArmorMeta) item3.getItemMeta();
                 assert item1m != null;
                 item1m.setColor(Color.GRAY);
                 item3.setItemMeta(item1m);
                 //
-                purchaseItem(item3, (Player) event.getWhoClicked(), 290);
+                purchaseItem(event, item3, (Player) event.getWhoClicked(), 290);
             }
-            if(event.getCurrentItem().equals(item4)) {
+            else if(event.getCurrentItem().equals(item4)) {
                 //
                 LeatherArmorMeta item1m = (LeatherArmorMeta) item4.getItemMeta();
                 assert item1m != null;
                 item1m.setColor(Color.GRAY);
                 item4.setItemMeta(item1m);
                 //
-                purchaseItem(item4, (Player) event.getWhoClicked(), 285);
+                purchaseItem(event, item4, (Player) event.getWhoClicked(), 285);
             }
-            if(event.getCurrentItem().equals(item5)) {
+            else if(event.getCurrentItem().equals(item5)) {
                 //
                 item5.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
                 //
-                purchaseItem(item5, (Player) event.getWhoClicked(), 680);
+                purchaseItem(event, item5, (Player) event.getWhoClicked(), 680);
             }
-            if(event.getCurrentItem().equals(item6)) {
-                purchaseItem(item6, (Player) event.getWhoClicked(), 320);
+            else if(event.getCurrentItem().equals(item6)) {
+                purchaseItem(event, item6, (Player) event.getWhoClicked(), 320);
             }
-            if(event.getCurrentItem().equals(item7)) {
+            else if(event.getCurrentItem().equals(item7)) {
                 //
                 item7.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
                 //
-                purchaseItem(item7, (Player) event.getWhoClicked(), 490);
+                purchaseItem(event, item7, (Player) event.getWhoClicked(), 490);
             }
-            if(event.getCurrentItem().equals(item8)) {
-                purchaseItem(item8, (Player) event.getWhoClicked(), 310);
+            else if(event.getCurrentItem().equals(item8)) {
+                purchaseItem(event, item8, (Player) event.getWhoClicked(), 310);
             }
-            if(event.getCurrentItem().equals(item9)) {
-                purchaseItem(item9, (Player) event.getWhoClicked(), 300);
+            else if(event.getCurrentItem().equals(item9)) {
+                purchaseItem(event, item9, (Player) event.getWhoClicked(), 300);
+            } else {
+                event.setCancelled(true);
             }
         }
     }

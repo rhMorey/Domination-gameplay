@@ -20,7 +20,7 @@ public class CoeurMer implements Listener {
         Player player = event.getPlayer();
         Elise.item2.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         if(player.getInventory().contains(Elise.item2)) {
-            player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 40, 0, false, false));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 40, 1, false, false));
             player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 40, 0, false, false));
         }
     }

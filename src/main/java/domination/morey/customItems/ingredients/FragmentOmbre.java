@@ -19,8 +19,7 @@ public class FragmentOmbre implements Listener {
 
     public static ItemStack result = new ItemStack(main.Item(Material.ECHO_SHARD, "§3Fragment d'ombre",
             "§7ᛏᚺᛁᛊ ᛟᛒᛃᛖᚲᛏ ᚺᛟᛚᛞᛊ ᚨᚾ ᛟᚢᛖᚱᚹᚺᛖᛚᛗᛁᛜ ᛈᛟᚹᛖᚱ", // Cet objet détient une puissance débordante
-            " ",
-            "§3§lRunique§7: §5ᛊᚺᚨᛞᛟᚹ"));
+            " "));
 
     public static ShapedRecipe onCraft() {
 

@@ -28,7 +28,6 @@ public class MembreCreynois implements Listener {
 
     public static ItemStack item1 = new ItemStack(main.Item(Material.ECHO_SHARD, "§3Fragment d'ombre", "§7ᛏᚺᛁᛊ ᛟᛒᛃᛖᚲᛏ ᚺᛟᛚᛞᛊ ᚨᚾ ᛟᚢᛖᚱᚹᚺᛖᛚᛗᛁᛜ ᛈᛟᚹᛖᚱ", // Cet objet détient une puissance débordante
             " ",
-            "§3§lRunique§7: §5ᛊᚺᚨᛞᛟᚹ",
             "§7Vente: §b1 Âme§7, §d1 Améthyste"));
 
 
@@ -54,11 +53,11 @@ public class MembreCreynois implements Listener {
         inv.setItem(1, main.Item(Material.CYAN_STAINED_GLASS_PANE, " "));
         inv.setItem(2, main.Item(Material.CYAN_STAINED_GLASS_PANE, " "));
         inv.setItem(3, main.Item(Material.CYAN_STAINED_GLASS_PANE, " "));
-        inv.setItem(4, main.Item(Material.DISC_FRAGMENT_5, "§3Membre du ᚲᚱᛖᛁᚾᛟᛁᛊ", " ", "§3§lRunique"));
+        inv.setItem(4, main.Item(Material.DISC_FRAGMENT_5, "§3§lMembre du ᚲᚱᛖᛁᚾᛟᛁᛊ", " ", "§3§lRunique"));
         inv.setItem(5, main.Item(Material.CYAN_STAINED_GLASS_PANE, " "));
         inv.setItem(6, main.Item(Material.CYAN_STAINED_GLASS_PANE, " "));
         inv.setItem(7, main.Item(Material.CYAN_STAINED_GLASS_PANE, " "));
-        inv.setItem(8, main.Item(Material.PAPER, "§6§lProfile§6: §e" + player.getName(), " ", "§aFragment d'émeraude§f: §a" + myMoney + " FE"));
+        inv.setItem(8, paper(player));
 
         inv.setItem(20, item1);
 
@@ -82,9 +81,11 @@ public class MembreCreynois implements Listener {
         if (event.getView().getTitle().equals("§3Membre du ᚲᚱᛖᛁᚾᛟᛁᛊ")) {
             event.setCancelled(true);
             if (event.getCurrentItem() == null) return;
-            if (event.getCurrentItem().equals(item1)) {
+            else if (event.getCurrentItem().equals(item1)) {
                 sellCustomItem(player, sell1, reward1, 1);
                 expreward(player, sell1, 1);
+            } else {
+                event.setCancelled(true);
             }
         }
     }

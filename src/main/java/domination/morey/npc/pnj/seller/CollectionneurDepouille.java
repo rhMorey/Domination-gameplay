@@ -12,6 +12,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+import static domination.morey.npc.npcManager.paper;
 import static domination.morey.npc.npcManager.sellItem;
 
 public class CollectionneurDepouille implements Listener {
@@ -79,11 +80,11 @@ public class CollectionneurDepouille implements Listener {
         inv.setItem(1, main.Item(Material.BLUE_STAINED_GLASS_PANE, " "));
         inv.setItem(2, main.Item(Material.BLUE_STAINED_GLASS_PANE, " "));
         inv.setItem(3, main.Item(Material.BLUE_STAINED_GLASS_PANE, " "));
-        inv.setItem(4, main.Item(Material.AXOLOTL_SPAWN_EGG, "§9Collectionneur de dépouille", " ", "§fCommun, §aAtypique§f, §9Rare§f, §5Épique§f, §6Mythique"));
+        inv.setItem(4, main.Item(Material.AXOLOTL_SPAWN_EGG, "§9§lCollectionneur de dépouille", " ", "§fCommun, §aAtypique§f, §9Rare§f, §5Épique§f, §6Mythique"));
         inv.setItem(5, main.Item(Material.BLUE_STAINED_GLASS_PANE, " "));
         inv.setItem(6, main.Item(Material.BLUE_STAINED_GLASS_PANE, " "));
         inv.setItem(7, main.Item(Material.BLUE_STAINED_GLASS_PANE, " "));
-        inv.setItem(8, main.Item(Material.PAPER, "§6§lProfile§6: §e" + player.getName(), " ", "§aFragment d'émeraude§f: §a" + myMoney + " FE"));
+        inv.setItem(8, paper(player));
 
         inv.setItem(20, item1);
         inv.setItem(21, item2);
@@ -118,32 +119,34 @@ public class CollectionneurDepouille implements Listener {
         if (event.getView().getTitle().equals("§9Collectionneur de dépouille")) {
             event.setCancelled(true);
             if (event.getCurrentItem() == null) return;
-            if (event.getCurrentItem().equals(item1)) {
+            else if (event.getCurrentItem().equals(item1)) {
                 sellItem(player, sell1, reward1, 1);
             }
-            if (event.getCurrentItem().equals(item2)) {
+            else if (event.getCurrentItem().equals(item2)) {
                 sellItem(player, sell2, reward1, 1);
             }
-            if (event.getCurrentItem().equals(item3)) {
+            else if (event.getCurrentItem().equals(item3)) {
                 sellItem(player, sell3, reward1, 2);
             }
-            if (event.getCurrentItem().equals(item4)) {
+            else if (event.getCurrentItem().equals(item4)) {
                 sellItem(player, sell4, reward1, 1);
             }
-            if (event.getCurrentItem().equals(item5)) {
+            else if (event.getCurrentItem().equals(item5)) {
                 sellItem(player, sell5, reward1, 3);
             }
-            if (event.getCurrentItem().equals(item6)) {
+            else if (event.getCurrentItem().equals(item6)) {
                 sellItem(player, sell6, reward1, 1);
             }
-            if (event.getCurrentItem().equals(item7)) {
+            else if (event.getCurrentItem().equals(item7)) {
                 sellItem(player, sell7, reward1, 1);
             }
-            if (event.getCurrentItem().equals(item8)) {
+            else if (event.getCurrentItem().equals(item8)) {
                 sellItem(player, sell8, reward1, 1);
             }
-            if (event.getCurrentItem().equals(item9)) {
+            else if (event.getCurrentItem().equals(item9)) {
                 sellItem(player, sell9, reward1, 5);
+            } else {
+                event.setCancelled(true);
             }
         }
     }

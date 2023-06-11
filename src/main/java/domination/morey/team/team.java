@@ -155,4 +155,14 @@ public class team implements Listener {
             }
         }
     }
+
+    public static Team getTeam(Player player) {
+        if(purple.getEntries().contains(player.getName())) {
+            return purple;
+        }
+        if(yellow.getEntries().contains(player.getName())) {
+            return yellow;
+        }
+        return null;
+    }
 }

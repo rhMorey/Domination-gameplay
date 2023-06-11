@@ -1,11 +1,14 @@
 package domination.morey.npc;
 
+import domination.morey.main;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.inventory.meta.SkullMeta;
@@ -31,7 +34,8 @@ public class npcManager implements Listener {
         return item.getType();
     }
 
-    public static void purchaseItem(ItemStack item, Player player, int price) {
+    public static void purchaseItem(InventoryClickEvent event, ItemStack item, Player player, int price) {
+        event.setCancelled(true);
         if (money.getMoney(player) < price) {
             player.sendMessage("§cVous n'avez pas assez de FE");
             player.closeInventory();
@@ -106,4 +110,17 @@ public class npcManager implements Listener {
             player.playSound(player.getLocation(), "block.amethyst_block.resonate", 1, 1);
         }
     }
+
+    public static ItemStack paper (Player player) {
+        int myMoney = money.getMoney(player);
+        ItemStack item = new ItemStack(main.Item(Material.PAPER, "§6§lProfile§6: §e" + player.getName(), " ",
+                "§aFragment d'émeraude§f: §a" + myMoney + " FE",
+                "§bÂmes§f: §b" + player.getLevel()));
+        return item;
+    }
+
+    //Casque : Heaume, couvre-chef, casquette, chapeau, coiffure.
+    //Plastron : Cuirasse, protection thoracique, cuirassé, armure de poitrine, poitrail.
+    //Jambières : Grèves, protège-jambes, tibias, bottes montantes, guêtres.
+    //Bottes : Souliers, chaussures, brodequins, godillots, santiags, bottines.
 }

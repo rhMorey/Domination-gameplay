@@ -38,7 +38,7 @@ public class capture implements Listener {
             }
             if (team.purple.getEntries().contains(player.getName()) && main.getCenter(flag, y).getType().equals(Material.WHITE_WOOL)) {
                 main.getCenter(flag, y).setType(Material.PURPLE_WOOL);
-                myMoney.addMoney(80, player);
+                myMoney.addMoney(50, player);
                 level.addXP(30, player);
                 Bukkit.broadcastMessage("§6L'équipe §5Violet§6 a capturé un drapeau !");
                 return;
@@ -52,7 +52,7 @@ public class capture implements Listener {
             }
             if (team.yellow.getEntries().contains(player.getName()) && main.getCenter(flag, y).getType().equals(Material.WHITE_WOOL)) {
                 main.getCenter(flag, y).setType(Material.YELLOW_WOOL);
-                myMoney.addMoney(80, player);
+                myMoney.addMoney(50, player);
                 level.addXP(30, player);
                 Bukkit.broadcastMessage("§6L'équipe §eJaune§6 a capturé un drapeau !");
                 return;

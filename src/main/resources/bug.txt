@@ -2,3 +2,17 @@ Si on change l'itemmeta d'un item, alors l'item n'est plus utilisable ou alors s
 Si on change l'itemmeta d'un item, alors l'item n'est plus utilisable ou alors son passif/activable n'est plus utilisable, alors il faut ABSOLUMENT que les mises à jours qui soient sur les items ne changent pas le nom /!\, et que les codes comparent uniquement le nom des objets !
 Si on change l'itemmeta d'un item, alors l'item n'est plus utilisable ou alors son passif/activable n'est plus utilisable, alors il faut ABSOLUMENT que les mises à jours qui soient sur les items ne changent pas le nom /!\, et que les codes comparent uniquement le nom des objets !
 
+quand on paye un objet, et qu'on y retouche dans son inventaire ça le fait disparaître
+On ne peut pas pvp dans les zones woldguard où le pvp n'est pas spécifié
+
+bug réglé :
+console : playermoveevent qui fait un évènement null sur le tank
+On peut dupliquer les items dans l'inventaire en faisant shift+clique gauche
+Le fragment d'émeraude ne s'enlève pas lorsqu'il est stacker
+Le chorus fruit ne se consomme pas
+On peut mettre des items de son inventaire dans celui du vendeur
+On peut prendre les items du vendeur
+
+note:
+utiliser le setCooldown pour les items
+faire un set où le joueur tape avec un bouclier

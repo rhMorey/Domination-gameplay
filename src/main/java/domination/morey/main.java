@@ -15,6 +15,9 @@ import domination.morey.economy.moneyManage;
 import domination.morey.experience.cmds.*;
 import domination.morey.experience.cmds.tabCompleter.rankupTabCompleter;
 import domination.morey.experience.level;
+import domination.morey.fortress.capture.captureSystem;
+import domination.morey.fortress.cmds.golemCmds;
+import domination.morey.fortress.fortressManager;
 import domination.morey.gamemode.capture;
 import domination.morey.gamemode.gameplay;
 import domination.morey.npc.cmds.tabCompleter.whereisTabCompleter;
@@ -26,6 +29,7 @@ import domination.morey.npc.pnj.seller.MembreCreynois;
 import domination.morey.npc.specialItem.*;
 import domination.morey.npc.npcManager;
 import domination.morey.npc.pnj.vendor.*;
+import domination.morey.npc.specialItem.fullset.*;
 import domination.morey.team.team;
 import domination.morey.team.whichclass.classeEvent;
 import domination.morey.team.whichclass.tabCompleter.classeTabCompleter;
@@ -69,6 +73,7 @@ public final class main extends JavaPlugin {
         Bukkit.getPluginCommand("whereis").setExecutor(new whereisCmds());
         Bukkit.getPluginCommand("glevel").setExecutor(new glevelCmds());
         Bukkit.getPluginCommand("classe").setExecutor(new classeCmds());
+        Bukkit.getPluginCommand("golem").setExecutor(new golemCmds());
         // COMMANDS
 
         // TAB COMPLETER
@@ -89,6 +94,8 @@ public final class main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new emeraldNuggets(), this);
         Bukkit.getPluginManager().registerEvents(new LanterneOmbreEvents(), this);
         Bukkit.getPluginManager().registerEvents(new classeEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new fortressManager(), this);
+        Bukkit.getPluginManager().registerEvents(new captureSystem(), this);
         // EVENTS
 
         // NPC
@@ -103,6 +110,7 @@ public final class main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new EchangeurFortune(), this);
         Bukkit.getPluginManager().registerEvents(new MembreCreynois(), this);
         Bukkit.getPluginManager().registerEvents(new Banquier(), this);
+        Bukkit.getPluginManager().registerEvents(new Lazsnite(), this);
         // NPC
 
         // SPECIAL ITEMS
@@ -119,6 +127,9 @@ public final class main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new Dortiate(), this);
         Bukkit.getPluginManager().registerEvents(new GladiateurAmateur(), this);
         Bukkit.getPluginManager().registerEvents(new Celion(), this);
+        Bukkit.getPluginManager().registerEvents(new Bourreau(), this);
+        Bukkit.getPluginManager().registerEvents(new Fort(), this);
+        Bukkit.getPluginManager().registerEvents(new Restaurateur(), this);
         // FULL SET
 
         // FLAGS

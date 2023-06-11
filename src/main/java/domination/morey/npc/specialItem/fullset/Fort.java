@@ -1,4 +1,4 @@
-package domination.morey.npc.specialItem;
+package domination.morey.npc.specialItem.fullset;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -7,7 +7,7 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-public class Dortiate implements Listener {
+public class Fort implements Listener {
 
     @EventHandler
     public void ifEnsemble(PlayerMoveEvent event) {
@@ -18,13 +18,15 @@ public class Dortiate implements Listener {
         if (player.getInventory().getLeggings() == null) return;
         if (player.getInventory().getBoots() == null) return;
 
+        String armor = "Fort";
         /////////////////////////////
-        if (player.getInventory().getHelmet().getItemMeta().getDisplayName().contains("Dortiate") &&
-                player.getInventory().getChestplate().getItemMeta().getDisplayName().contains("Dortiate") &&
-                player.getInventory().getLeggings().getItemMeta().getDisplayName().contains("Dortiate") &&
-                player.getInventory().getBoots().getItemMeta().getDisplayName().contains("Dortiate")) {
+        if (player.getInventory().getHelmet().getItemMeta().getDisplayName().contains(armor) &&
+                player.getInventory().getChestplate().getItemMeta().getDisplayName().contains(armor) &&
+                player.getInventory().getLeggings().getItemMeta().getDisplayName().contains(armor) &&
+                player.getInventory().getBoots().getItemMeta().getDisplayName().contains(armor)) {
             /////////////////////////////
-            player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 30, 0, false, false));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 100, 1, false, false));
         }
     }
+
 }

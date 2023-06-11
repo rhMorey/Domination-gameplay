@@ -48,3 +48,7 @@ commands:
     description: Vous permet de choisir votre classe
     permission-message: "§c§l(!) §cYou don't have permission to use this command."
     permission: domination.classe
+  golem:
+    description: Vous permet de faire apparaitre un golem
+    permission-message: "§c§l(!) §cYou don't have permission to use this command."
+    permission: domination.golem

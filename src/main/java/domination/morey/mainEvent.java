@@ -5,12 +5,14 @@ import domination.morey.economy.moneyManage;
 import net.md_5.bungee.api.ChatMessageType;
 import org.bukkit.*;
 import org.bukkit.block.Block;
+import org.bukkit.entity.PiglinAbstract;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.entity.EntityTransformEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.CraftItemEvent;
 import org.bukkit.event.player.*;
@@ -29,7 +31,7 @@ public class mainEvent implements Listener {
     //
     //
 
-    static String patch = "§6§lPatch§6: V0.8-ALPHA";
+    static String patch = "§6§lPatch§6: V0.9-DEV";
     // MODIFIER LE BUKKITSCHEDULER DANS MAINEVENT.CLASS
 
     //
@@ -98,7 +100,6 @@ public class mainEvent implements Listener {
         player.sendMessage("§cVous ne pouvez pas dormir pour l'instant, il pourrait s'agir d'une futur mise à jour.");
         event.setCancelled(true);
     }
-
     @EventHandler
     public void onPortal(PlayerPortalEvent event) {
         Player player = event.getPlayer();

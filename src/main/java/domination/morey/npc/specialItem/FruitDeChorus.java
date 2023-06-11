@@ -17,6 +17,7 @@ public class FruitDeChorus implements Listener {
         Player player = event.getPlayer();
         if(event.getItem().getItemMeta().getDisplayName().equals("§9Fruit de chorus")) {
             event.setCancelled(true);
+            player.getInventory().removeItem(event.getItem().asQuantity(1));
             player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 240, 0));
             player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText("§aVous vous sentez bien nourri."));
         }

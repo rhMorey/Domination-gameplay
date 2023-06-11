@@ -9,13 +9,13 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 
-import static domination.morey.npc.npcManager.purchaseItem;
-import static domination.morey.npc.npcManager.spiritPurchaseItem;
+import static domination.morey.npc.npcManager.*;
 
 public class Elise implements Listener {
 
@@ -49,21 +49,21 @@ public class Elise implements Listener {
     public Inventory invElise(Player player) {
 
         int myMoney = money.getMoney(player);
-        Inventory inv = Bukkit.createInventory(player, 54, "§aElise §8- §aNécromancienne");
+        Inventory inv = Bukkit.createInventory(player, 54, "§3§lElise");
 
         // ITEM PARAMETER
         item1.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         // ITEM PARAMETER
 
-        inv.setItem(0, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
-        inv.setItem(1, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
-        inv.setItem(2, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
-        inv.setItem(3, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
-        inv.setItem(4, main.Item(Material.ENDER_EYE, "§a§lNécromancienne", " ", "§fCommun, §aAtypique§f, §9Rare§f, §5Épique§f, §6Mythique"));
-        inv.setItem(5, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
-        inv.setItem(6, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
-        inv.setItem(7, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
-        inv.setItem(8, main.Item(Material.PAPER, "§6§lProfile§6: §e" + player.getName(), " ", "§aFragment d'émeraude§f: §a" + myMoney + " FE"));
+        inv.setItem(0, main.Item(Material.CYAN_STAINED_GLASS_PANE, " "));
+        inv.setItem(1, main.Item(Material.CYAN_STAINED_GLASS_PANE, " "));
+        inv.setItem(2, main.Item(Material.CYAN_STAINED_GLASS_PANE, " "));
+        inv.setItem(3, main.Item(Material.CYAN_STAINED_GLASS_PANE, " "));
+        inv.setItem(4, main.Item(Material.ENDER_EYE, "§3§lElise", " ", "§fCommun, §aAtypique§f, §9Rare§f, §5Épique§f, §6Mythique"));
+        inv.setItem(5, main.Item(Material.CYAN_STAINED_GLASS_PANE, " "));
+        inv.setItem(6, main.Item(Material.CYAN_STAINED_GLASS_PANE, " "));
+        inv.setItem(7, main.Item(Material.CYAN_STAINED_GLASS_PANE, " "));
+        inv.setItem(8, paper(player));
 
         inv.setItem(20, item1);
         inv.setItem(21, item2);
@@ -74,16 +74,21 @@ public class Elise implements Listener {
     @EventHandler
     public void ifClicking(InventoryClickEvent event) {
 
-        if (event.getView().getTitle().equals("§aElise §8- §aNécromancienne")) {
+        if (event.getView().getTitle().equals("§3§lElise")) {
             if (event.getCurrentItem() == null) return;
-            if (event.getCurrentItem().equals(item1)) {
+            if(event.getAction().equals(InventoryAction.MOVE_TO_OTHER_INVENTORY)) {
+                event.setCancelled(true);
+            }
+            else if (event.getCurrentItem().equals(item1)) {
                 //
                 item1.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 8);
                 //
                 spiritPurchaseItem(item1, (Player) event.getWhoClicked(), 75);
             }
-            if(event.getCurrentItem().equals(item2)) {
+            else if(event.getCurrentItem().equals(item2)) {
                 spiritPurchaseItem(item2, (Player) event.getWhoClicked(), 215);
+            } else {
+                event.setCancelled(true);
             }
         }
     }

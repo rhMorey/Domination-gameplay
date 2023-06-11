@@ -8,10 +8,12 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+import static domination.morey.npc.npcManager.paper;
 import static domination.morey.npc.npcManager.purchaseItem;
 
 public class Lorient implements Listener {
@@ -64,7 +66,7 @@ public class Lorient implements Listener {
         inv.setItem(5, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
         inv.setItem(6, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
         inv.setItem(7, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
-        inv.setItem(8, main.Item(Material.PAPER, "§6§lProfile§6: §e" + player.getName(), " ", "§aFragment d'émeraude§f: §a" + myMoney + " FE"));
+        inv.setItem(8, paper(player));
 
         inv.setItem(20, item1);
         inv.setItem(21, item2);
@@ -79,17 +81,22 @@ public class Lorient implements Listener {
 
         if (event.getView().getTitle().equals("§aLorient §8- §aMineur des basses-grottes")) {
             if (event.getCurrentItem() == null) return;
-            if (event.getCurrentItem().equals(item1)) {
-                purchaseItem(item1, (Player) event.getWhoClicked(), 10);
+            if(event.getAction().equals(InventoryAction.MOVE_TO_OTHER_INVENTORY)) {
+                event.setCancelled(true);
             }
-            if(event.getCurrentItem().equals(item2)) {
-                purchaseItem(item2, (Player) event.getWhoClicked(), 2);
+            else if (event.getCurrentItem().equals(item1)) {
+                purchaseItem(event, item1, (Player) event.getWhoClicked(), 10);
             }
-            if(event.getCurrentItem().equals(item3)) {
-                purchaseItem(item3, (Player) event.getWhoClicked(), 1);
+            else if(event.getCurrentItem().equals(item2)) {
+                purchaseItem(event, item2, (Player) event.getWhoClicked(), 2);
             }
-            if(event.getCurrentItem().equals(item4)) {
-                purchaseItem(item4, (Player) event.getWhoClicked(), 270);
+            else if(event.getCurrentItem().equals(item3)) {
+                purchaseItem(event, item3, (Player) event.getWhoClicked(), 1);
+            }
+            else if(event.getCurrentItem().equals(item4)) {
+                purchaseItem(event, item4, (Player) event.getWhoClicked(), 270);
+            } else {
+                event.setCancelled(true);
             }
         }
     }
