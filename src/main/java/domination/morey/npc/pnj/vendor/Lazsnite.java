@@ -69,7 +69,7 @@ public class Lazsnite implements Listener {
             "§7Prix: §a600 FE"));
     public static ItemStack item9 = new ItemStack(main.Item(Material.STONE_AXE, "§9Hache du Bourreau",
             "§7Cet objet appartient à l'ensemble du §bBourreau",
-            "§6§lFS: §eEffet vitesse I tant que vous portez l'ensemble §bBourreau",
+            "§6§lFS: §eEffet vitesse I tant que vous portez l'ensemble §bBourreau §8(épée incluse)",
             " ",
             "§7Prix: §a810 FE"));
 

@@ -3,9 +3,17 @@ package domination.morey;
 import com.sk89q.worldedit.math.BlockVector3;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import domination.morey.customItems.armor.GladiateurReinforced;
+import domination.morey.customItems.armor.fullset.GardienOmbre;
+import domination.morey.customItems.armor.fullset.OmbreEnvoutante;
+import domination.morey.customItems.armor.fullset.effect.GardienOmbreEffect;
+import domination.morey.customItems.armor.fullset.effect.OmbreEnvoutanteEffect;
+import domination.morey.customItems.ingredients.CuirEnergie;
+import domination.morey.customItems.ingredients.FerEnergie;
 import domination.morey.customItems.ingredients.FragmentOmbre;
 import domination.morey.customItems.ingredients.SolidificationArmure;
+import domination.morey.customItems.items.ElectroLame;
 import domination.morey.customItems.items.LanterneOmbre;
+import domination.morey.customItems.items.effect.ElectroLameEffect;
 import domination.morey.customItems.itemsEvent.LanterneOmbreEvents;
 import domination.morey.dungeons.customMobs;
 import domination.morey.economy.cmds.gmoneyCmds;
@@ -96,6 +104,7 @@ public final class main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new classeEvent(), this);
         Bukkit.getPluginManager().registerEvents(new fortressManager(), this);
         Bukkit.getPluginManager().registerEvents(new captureSystem(), this);
+        Bukkit.getPluginManager().registerEvents(new ElectroLameEffect(), this);
         // EVENTS
 
         // NPC
@@ -131,6 +140,9 @@ public final class main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new Fort(), this);
         Bukkit.getPluginManager().registerEvents(new Restaurateur(), this);
         // FULL SET
+        Bukkit.getPluginManager().registerEvents(new GardienOmbreEffect(), this);
+        Bukkit.getPluginManager().registerEvents(new OmbreEnvoutanteEffect(), this);
+        // FULL SET + CUSTOM ITEMS
 
         // FLAGS
         Bukkit.getPluginManager().registerEvents(new domination.morey.gamemode.flags.flag1(), this);
@@ -148,6 +160,18 @@ public final class main extends JavaPlugin {
         getServer().addRecipe(GladiateurReinforced.onCraft());
         getServer().addRecipe(FragmentOmbre.onCraft());
         getServer().addRecipe(LanterneOmbre.onCraft());
+        getServer().addRecipe(FerEnergie.onCraft());
+        getServer().addRecipe(CuirEnergie.onCraft());
+        getServer().addRecipe(GardienOmbre.onCraftHelmet());
+        getServer().addRecipe(GardienOmbre.onCraftChestplate());
+        getServer().addRecipe(GardienOmbre.onCraftLeggings());
+        getServer().addRecipe(GardienOmbre.onCraftBoots());
+        getServer().addRecipe(OmbreEnvoutante.onCraftHelmet());
+        getServer().addRecipe(OmbreEnvoutante.onCraftChestplate());
+        getServer().addRecipe(OmbreEnvoutante.onCraftLeggings());
+        getServer().addRecipe(OmbreEnvoutante.onCraftBoots());
+        getServer().addRecipe(OmbreEnvoutante.onCraftSword());
+        getServer().addRecipe(ElectroLame.onCraft());
         logger.info("Recipes loaded!");
         // CUSTOM CRAFT
     }

@@ -63,6 +63,15 @@ public class level implements Listener {
         player.spigot().sendMessage(ChatMessageType.ACTION_BAR, net.md_5.bungee.api.chat.TextComponent.fromLegacyText(message));
         plugin.saveConfig();
     }
+
+    public static int getMana(Player player) {
+        return plugin.getConfig().getInt(main.manaPath(player));
+    }
+
+    public static void addMana(Player player, int amount) {
+        plugin.getConfig().set(main.manaPath(player), amount);
+        plugin.saveConfig();
+    }
 }
 //
 //plugin.getConfig().set("eco." + player.getUniqueId() + ".xp", main.getInstance().getConfig().getInt("eco." + player.getUniqueId() + ".xp") + random);

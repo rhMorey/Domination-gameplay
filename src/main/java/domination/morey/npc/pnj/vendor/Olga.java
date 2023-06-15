@@ -75,7 +75,7 @@ public class Olga implements Listener {
             "§7Prix: §a310 FE"));
     public static ItemStack item9 = new ItemStack(main.Item(Material.CHAINMAIL_BOOTS, "§aBottes du Gladiateur amateur",
             "§7Cet objet appartient à l'ensemble §bGladiateur amateur",
-            "§6§lFS: §eEffet résistance I tant que vous portez l'ensemble §bGladiateur amateur §8(épée inclus)",
+            "§6§lFS: §eEffet résistance I tant que vous portez l'ensemble §bGladiateur amateur §8(épée incluse)",
             " ",
             "§7Prix: §a300 FE"));
 

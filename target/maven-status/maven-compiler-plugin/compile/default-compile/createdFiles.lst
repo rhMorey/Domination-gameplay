@@ -5,10 +5,12 @@ domination\morey\npc\pnj\vendor\Olga.class
 domination\morey\npc\specialItem\fullset\Dortiate.class
 domination\morey\mainEvent$1.class
 domination\morey\team\team.class
+domination\morey\customItems\items\effect\ElectroLameEffect.class
 domination\morey\gamemode\gameplay.class
 domination\morey\npc\specialItem\RagoutChampignonsJaunes.class
 domination\morey\npc\specialItem\CoeurMer.class
 domination\morey\gamemode\flags\flag5.class
+domination\morey\customItems\ingredients\FerEnergie.class
 domination\morey\main.class
 domination\morey\npc\specialItem\fullset\Bourreau.class
 domination\morey\team\whichclass\classeCmds.class
@@ -19,6 +21,8 @@ domination\morey\mainEvent$4.class
 domination\morey\npc\npcManager.class
 domination\morey\team\whichclass\classeEvent.class
 domination\morey\npc\specialItem\fullset\Fort.class
+domination\morey\customItems\armor\fullset\OmbreEnvoutante.class
+domination\morey\customItems\armor\fullset\effect\GardienOmbreEffect.class
 domination\morey\npc\specialItem\ModuleRapidite.class
 domination\morey\economy\cmds\moneyCmds.class
 domination\morey\experience\cmds\glevelCmds.class
@@ -37,9 +41,11 @@ domination\morey\gamemode\flags\flag4.class
 domination\morey\mainEvent.class
 domination\morey\npc\cmds\whereisCmds.class
 domination\morey\npc\specialItem\fullset\Restaurateur.class
+domination\morey\customItems\armor\fullset\effect\OmbreEnvoutanteEffect.class
 domination\morey\dungeons\loot\emeraldNuggets.class
 domination\morey\npc\pnj\vendor\Lazsnite.class
 domination\morey\npc\specialItem\fullset\Celion.class
+domination\morey\customItems\ingredients\CuirEnergie.class
 domination\morey\npc\pnj\vendor\Alduan.class
 domination\morey\gamemode\flags\flag7.class
 domination\morey\experience\cmds\rankupCmds.class
@@ -49,6 +55,7 @@ domination\morey\mainEvent$6.class
 domination\morey\npc\pnj\vendor\Elise.class
 domination\morey\experience\cmds\tabCompleter\rankupTabCompleter.class
 domination\morey\mainEvent$2.class
+domination\morey\customItems\items\ElectroLame.class
 domination\morey\gamemode\flags\flag3.class
 domination\morey\npc\specialItem\FauxDealite.class
 domination\morey\team\whichclass\tabCompleter\classeTabCompleter.class
@@ -64,6 +71,7 @@ domination\morey\npc\pnj\seller\EchangeurFortune.class
 domination\morey\gamemode\flags\flag6.class
 domination\morey\npc\pnj\seller\MembreCreynois.class
 domination\morey\experience\level.class
+domination\morey\customItems\armor\fullset\GardienOmbre.class
 domination\morey\fortress\cmds\golemCmds.class
 domination\morey\experience\cmds\statsCmds.class
 domination\morey\economy\cmds\gmoneyCmds.class

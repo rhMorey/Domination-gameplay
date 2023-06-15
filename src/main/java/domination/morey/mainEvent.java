@@ -275,7 +275,7 @@ public class mainEvent implements Listener {
 
     public ArrayList<Material> blacklist = new ArrayList<Material>() {
         {
-            add(Material.IRON_SWORD);
+            //add(Material.IRON_SWORD);
             add(Material.IRON_AXE);
             add(Material.STONE_AXE);
             add(Material.STONE_SWORD);
@@ -292,10 +292,10 @@ public class mainEvent implements Listener {
             add(Material.DIAMOND_CHESTPLATE);
             add(Material.DIAMOND_LEGGINGS);
             add(Material.DIAMOND_BOOTS);
-            add(Material.IRON_HELMET);
-            add(Material.IRON_CHESTPLATE);
-            add(Material.IRON_LEGGINGS);
-            add(Material.IRON_BOOTS);
+            //add(Material.IRON_HELMET);
+            //add(Material.IRON_CHESTPLATE);
+            //add(Material.IRON_LEGGINGS);
+            //add(Material.IRON_BOOTS);
             add(Material.GOLDEN_HELMET);
             add(Material.GOLDEN_CHESTPLATE);
             add(Material.GOLDEN_LEGGINGS);
