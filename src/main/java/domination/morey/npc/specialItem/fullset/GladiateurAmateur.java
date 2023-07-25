@@ -17,6 +17,7 @@ public class GladiateurAmateur implements Listener {
         if (player.getInventory().getChestplate() == null) return;
         if (player.getInventory().getLeggings() == null) return;
         if (player.getInventory().getBoots() == null) return;
+        if(player.getInventory().getItemInMainHand().getItemMeta() == null) return;
 
         /////////////////////////////
         if (player.getInventory().getHelmet().getItemMeta().getDisplayName().contains("Gladiateur") &&

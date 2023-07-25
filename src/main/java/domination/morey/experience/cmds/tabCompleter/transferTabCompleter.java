@@ -8,11 +8,11 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class rankupTabCompleter implements TabCompleter {
+public class transferTabCompleter implements TabCompleter {
 
     @Override
     public @Nullable List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
-        if (command.getName().equalsIgnoreCase("rankup")) {
+        if (command.getName().equalsIgnoreCase("transfer")) {
             if (args.length == 1) {
                 List<String> suggestions = new ArrayList<>();
                 suggestions.add("1");

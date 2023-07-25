@@ -21,7 +21,8 @@ import domination.morey.economy.cmds.moneyCmds;
 import domination.morey.dungeons.loot.emeraldNuggets;
 import domination.morey.economy.moneyManage;
 import domination.morey.experience.cmds.*;
-import domination.morey.experience.cmds.tabCompleter.rankupTabCompleter;
+import domination.morey.experience.leveling.leveling;
+import domination.morey.experience.cmds.tabCompleter.transferTabCompleter;
 import domination.morey.experience.level;
 import domination.morey.fortress.capture.captureSystem;
 import domination.morey.fortress.cmds.golemCmds;
@@ -76,17 +77,19 @@ public final class main extends JavaPlugin {
         Bukkit.getPluginCommand("gmoney").setExecutor(new gmoneyCmds());
         Bukkit.getPluginCommand("gxp").setExecutor(new gxpCmds());
         Bukkit.getPluginCommand("gmana").setExecutor(new gmanaCmds());
-        Bukkit.getPluginCommand("rankup").setExecutor(new rankupCmds());
+        Bukkit.getPluginCommand("transfer").setExecutor(new transferCmds());
         Bukkit.getPluginCommand("stats").setExecutor(new statsCmds());
         Bukkit.getPluginCommand("whereis").setExecutor(new whereisCmds());
-        Bukkit.getPluginCommand("glevel").setExecutor(new glevelCmds());
+        Bukkit.getPluginCommand("gspirit").setExecutor(new gspiritCmds());
         Bukkit.getPluginCommand("classe").setExecutor(new classeCmds());
         Bukkit.getPluginCommand("golem").setExecutor(new golemCmds());
+        Bukkit.getPluginCommand("aff").setExecutor(new affichage());
+        Bukkit.getPluginCommand("setlevel").setExecutor(new setlevelCmds());
         // COMMANDS
 
         // TAB COMPLETER
         getCommand("whereis").setTabCompleter(new whereisTabCompleter());
-        getCommand("rankup").setTabCompleter(new rankupTabCompleter());
+        getCommand("transfer").setTabCompleter(new transferTabCompleter());
         getCommand("classe").setTabCompleter(new classeTabCompleter());
         // TAB COMPLETER
 
@@ -105,6 +108,8 @@ public final class main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new fortressManager(), this);
         Bukkit.getPluginManager().registerEvents(new captureSystem(), this);
         Bukkit.getPluginManager().registerEvents(new ElectroLameEffect(), this);
+        Bukkit.getPluginManager().registerEvents(new intro(), this);
+        Bukkit.getPluginManager().registerEvents(new leveling(), this);
         // EVENTS
 
         // NPC
@@ -212,6 +217,9 @@ public final class main extends JavaPlugin {
     }
     public static String classePath(Player player) {
         return "eco." + player.getUniqueId() + ".classe";
+    }
+    public static String levelPath(Player player) {
+        return "eco." + player.getUniqueId() + ".level";
     }
 
     //

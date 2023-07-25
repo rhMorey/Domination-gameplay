@@ -18,6 +18,7 @@ public class ElectroLameEffect implements Listener {
         int cost = 5;
         Player player = event.getPlayer();
         ItemStack item = player.getInventory().getItemInMainHand();
+        if(item.getItemMeta() == null) return;
         if(event.getAction().isRightClick() && item.getItemMeta().getDisplayName().equals("§9Electro lame")) {
             if(player.getCooldown(item.getType()) <= 0) {
                 if (getMana(player) >= 5) {

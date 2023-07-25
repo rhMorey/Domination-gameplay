@@ -10,13 +10,13 @@ import org.jetbrains.annotations.NotNull;
 import static domination.morey.main.plugin;
 import static org.apache.commons.lang.math.NumberUtils.isNumber;
 
-public class rankupCmds implements CommandExecutor {
+public class transferCmds implements CommandExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
 
         Player player = (Player) sender;
-        if(s.equals("rankup")) {
+        if(s.equals("transfer")) {
             if(args.length == 0) {
                 player.sendMessage("§cSélectionnez un montant d'§bÂmes§c à accorder à votre §9Mana§c.");
             } else if(args.length == 1) {

@@ -28,8 +28,8 @@ commands:
     description: Vous montre votre level
     permission-message: "§c§l(!) §cYou don't have permission to use this command."
     permission: domination.level
-  rankup:
-    description: Vous permet de passer au grade supérieur
+  transfer:
+    description: Vous permet de passer votre nombre d'âmes en Mana
     permission-message: "§c§l(!) §cYou don't have permission to use this command."
     permission: domination.rankup
   stats:
@@ -40,7 +40,7 @@ commands:
     description: Vous montre où sont les pnjs ou lieux importants
     permission-message: "§c§l(!) §cYou don't have permission to use this command."
     permission: domination.whereis
-  glevel:
+  gspirit:
     description: Vous permet de donner des levels à un joueur (admin)
     permission-message: "§c§l(!) §cYou don't have permission to use this command."
     permission: domination.glevel
@@ -52,3 +52,11 @@ commands:
     description: Vous permet de faire apparaitre un golem
     permission-message: "§c§l(!) §cYou don't have permission to use this command."
     permission: domination.golem
+  aff:
+    description: Vous permet de faire apparaitre un affranchi
+    permission-message: "§c§l(!) §cYou don't have permission to use this command."
+    permission: domination.aff
+  setlevel:
+    description: Vous permet de changer le niveau du joueur
+    permission-message: "§c§l(!) §cYou don't have permission to use this command."
+    permission: domination.setlevel

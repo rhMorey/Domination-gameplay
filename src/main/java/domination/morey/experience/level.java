@@ -1,5 +1,6 @@
 package domination.morey.experience;
 
+import domination.morey.intro;
 import domination.morey.main;
 import net.md_5.bungee.api.ChatMessageType;
 import org.bukkit.entity.Entity;
@@ -27,26 +28,16 @@ public class level implements Listener {
     public void onConnect(PlayerJoinEvent event) {
         Player player = event.getPlayer();
         Logger logger = plugin.getLogger();
-        if (plugin.getConfig().get(main.xpPath(player)) == null || plugin.getConfig().get(main.manaPath(player)) == null) {
+        if (plugin.getConfig().get(main.xpPath(player)) == null || plugin.getConfig().get(main.manaPath(player)) == null || plugin.getConfig().get(main.levelPath(player)) == null) {
             plugin.getConfig().set(main.xpPath(player), 0);
             plugin.getConfig().set(main.manaPath(player), 0);
+            plugin.getConfig().set(main.levelPath(player), 0);
             logger.info("mana set to 0 for " + player.getName() + " / " + player.getUniqueId());
             logger.info("xp set to 0 for " + player.getName() + " / " + player.getUniqueId());
+            logger.info("level set to 0 for " + player.getName() + " / " + player.getUniqueId());
+            intro.launch(player);
             plugin.saveConfig();
         }
-    }
-
-    @EventHandler
-    public void leveling(PlayerExpChangeEvent event) {
-
-        Player player = event.getPlayer();
-        int xp = event.getAmount();
-        int xptotal = player.getTotalExperience();
-        String message = "§e+" + xp + " §eXP";
-        player.spigot().sendMessage(ChatMessageType.ACTION_BAR, net.md_5.bungee.api.chat.TextComponent.fromLegacyText(message));
-        plugin.getConfig().set(main.xpPath(player), xptotal);
-        //plugin.getConfig().set("eco." + player.getUniqueId() + ".xp", main.getInstance().getConfig().getInt("eco." + player.getUniqueId() + ".xp") + xp);
-        plugin.saveConfig();
     }
 
 
@@ -64,6 +55,13 @@ public class level implements Listener {
         plugin.saveConfig();
     }
 
+    public static int getXP(Player player) {
+        return plugin.getConfig().getInt(main.xpPath(player));
+    }
+
+    public static int getLvl(Player player) {
+        return plugin.getConfig().getInt(main.levelPath(player));
+    }
     public static int getMana(Player player) {
         return plugin.getConfig().getInt(main.manaPath(player));
     }

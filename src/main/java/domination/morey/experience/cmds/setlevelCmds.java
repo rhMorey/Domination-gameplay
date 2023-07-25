@@ -9,23 +9,24 @@ import org.jetbrains.annotations.NotNull;
 
 import static domination.morey.main.plugin;
 
-public class glevelCmds implements CommandExecutor {
+public class setlevelCmds implements CommandExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
 
         Player player = (Player) sender;
-        if(s.equalsIgnoreCase("glevel")) {
+        if(s.equalsIgnoreCase("setlevel")) {
             if(args.length == 0) {
-                player.sendMessage(main.prefix + "Sélectionnez un montant d'§bâmes§c à donner.");
+                player.sendMessage(main.prefix + "Sélectionnez le niveau à prendre.");
             }
             if(args.length == 1) {
                 if(isNumber(args[0])) {
                     int amount = Integer.parseInt(args[0]);
-                    player.setLevel(player.getLevel() + amount);
-                    player.sendMessage(main.prefix + "§eVous avez reçu §b" + amount + " Âmes§e.");
+                    plugin.getConfig().set(main.levelPath(player), amount);
+                    plugin.saveConfig();
+                    player.sendMessage(main.prefix + "§eVous êtes maintenant niveau §c" + amount + "§e.");
                 } else {
-                    player.sendMessage(main.prefix + "Sélectionnez un montant d'§bâmes§c valide.");
+                    player.sendMessage(main.prefix + "Sélectionnez un niveau valide.");
                 }
             }
         }

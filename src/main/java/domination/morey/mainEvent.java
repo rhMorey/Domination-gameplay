@@ -22,6 +22,7 @@ import org.bukkit.material.Crops;
 import java.util.ArrayList;
 
 import static domination.morey.experience.level.addXP;
+import static domination.morey.experience.level.getLvl;
 import static domination.morey.main.plugin;
 
 public class mainEvent implements Listener {
@@ -132,7 +133,11 @@ public class mainEvent implements Listener {
     @EventHandler
     public void chatFormat(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
-        event.setFormat("§e[§f" + plugin.getConfig().get("eco." + player.getUniqueId() + ".xp") + "§e] §f" + event.getPlayer().getName() + " §7§l» §r" + event.getMessage());
+        if (getLvl(player) != 60) {
+            event.setFormat("§f[§e" + plugin.getConfig().get(main.levelPath(player)) + "§f] §f" + event.getPlayer().getName() + " §7§l» §r" + event.getMessage());
+        } else {
+            event.setFormat("§f[§c§l60§f] §f" + event.getPlayer().getName() + " §7§l» §r" + event.getMessage());
+        }
     }
 
     public static ArrayList<Material> listore = new ArrayList<Material>() {
