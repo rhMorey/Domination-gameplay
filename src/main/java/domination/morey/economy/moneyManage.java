@@ -35,7 +35,7 @@ public class moneyManage implements Listener {
         plugin.saveConfig();
     }
 
-    public int getMoney(Player player) {
+    public static int getMoney(Player player) {
         int money = plugin.getConfig().getInt("eco." + player.getUniqueId() + ".money");
         return money;
     }

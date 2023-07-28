@@ -15,14 +15,19 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityTransformEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.CraftItemEvent;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.*;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.material.Crops;
 
 import java.util.ArrayList;
 
-import static domination.morey.experience.level.addXP;
-import static domination.morey.experience.level.getLvl;
+import static domination.morey.economy.moneyManage.getMoney;
+import static domination.morey.experience.level.*;
+import static domination.morey.experience.leveling.leveling.multiplier;
+import static domination.morey.main.Item;
 import static domination.morey.main.plugin;
 
 public class mainEvent implements Listener {
@@ -75,6 +80,7 @@ public class mainEvent implements Listener {
 
         Player player = event.getPlayer();
         event.setJoinMessage("§a+ §7" + player.getName());
+        initializeBook(player);
         info(event);
         if(!player.hasPlayedBefore()) {
             Bukkit.getServer().broadcastMessage("§f§lFIRST TIME! " + "§d"+player.getName());
@@ -191,7 +197,7 @@ public class mainEvent implements Listener {
     public void onBreak(BlockBreakEvent event) {
         Player player = event.getPlayer();
         Material blocktype = event.getBlock().getType();
-        if(player.isOp()) {
+        if(player.getGameMode().equals(GameMode.CREATIVE)) {
             return;
         }
         if (listore.contains(blocktype)) {
@@ -323,6 +329,45 @@ public class mainEvent implements Listener {
         if(blacklist.contains(event.getRecipe().getResult().getType())) {
             event.setCancelled(true);
             event.getWhoClicked().sendMessage(main.prefix + "Vous ne pouvez pas crafter cet item.");
+        }
+    }
+
+
+    public void initializeBook(Player player) {
+
+        double xpNeed = 500 * multiplier * getLvl(player);
+        /*Inventory inv = Bukkit.createInventory(player, 9, "§6§lMenu de compétences");) {
+        }*/
+        ItemStack item = new ItemStack(main.Item(Material.ENCHANTED_BOOK, "§c§lLivre de l'Aventurier", "§7Cliquez pour ouvrir le livre", "§eNiveau§7: §e" + getLvl(player), "§eXP§7: §e" + getXP(player) + "§7/§c" + xpNeed, "§aMonnaie§7: §a" + getMoney(player) + " §aFE"));
+        player.getInventory().setItem(17, item);
+
+    }
+
+    @EventHandler
+    public void ifClicking(InventoryClickEvent event) {
+        Player player = (Player) event.getWhoClicked();
+        if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§c§lLivre de l'Aventurier")) {
+            event.setCancelled(true);
+            player.closeInventory();
+
+            // Lancement de la création de l'inventaire
+            Inventory inv = Bukkit.createInventory(player, 54, "§cLivre de l'Aventurier");
+
+            // Paramétrage de l'inventaire
+            ItemStack sword_nether = new ItemStack(main.Item(Material.NETHERITE_SWORD, "§c" + player.getName(), " ", "§eLe livre de l'Aventurier vous permet de voir les évènements actuel."));
+
+            inv.setItem(0, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
+            inv.setItem(1, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
+            inv.setItem(2, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
+            inv.setItem(3, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
+            inv.setItem(4, sword_nether);
+            inv.setItem(5, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
+            inv.setItem(6, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
+            inv.setItem(7, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
+            inv.setItem(8, main.Item(Material.GRAY_STAINED_GLASS_PANE, " "));
+
+            player.openInventory(inv);
+
         }
     }
 }
