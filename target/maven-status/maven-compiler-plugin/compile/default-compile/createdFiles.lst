@@ -24,6 +24,7 @@ domination\morey\npc\npcManager.class
 domination\morey\team\whichclass\classeEvent.class
 domination\morey\npc\specialItem\fullset\Fort.class
 domination\morey\customItems\armor\fullset\OmbreEnvoutante.class
+domination\morey\customItems\items\ekaliaTest.class
 domination\morey\customItems\armor\fullset\effect\GardienOmbreEffect.class
 domination\morey\npc\specialItem\ModuleRapidite.class
 domination\morey\economy\cmds\moneyCmds.class

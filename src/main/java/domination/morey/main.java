@@ -14,6 +14,7 @@ import domination.morey.customItems.ingredients.SolidificationArmure;
 import domination.morey.customItems.items.ElectroLame;
 import domination.morey.customItems.items.LanterneOmbre;
 import domination.morey.customItems.items.effect.ElectroLameEffect;
+import domination.morey.customItems.items.ekaliaTest;
 import domination.morey.customItems.itemsEvent.LanterneOmbreEvents;
 import domination.morey.dungeons.customMobs;
 import domination.morey.economy.cmds.gmoneyCmds;
@@ -71,6 +72,8 @@ public final class main extends JavaPlugin {
         Logger logger = getLogger();
         logger.info("Domination has been enabled!");
         saveDefaultConfig();
+
+        Bukkit.getPluginManager().registerEvents(new ekaliaTest(), this);
 
         // COMMANDS
         Bukkit.getPluginCommand("money").setExecutor(new moneyCmds());
